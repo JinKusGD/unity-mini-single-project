@@ -12,9 +12,12 @@ public class InputManager : MonoBehaviour
 
     public static InputManager Instance { get; private set; }
 
+    [Header("Input Actions")]
     [SerializeField] private InputActionReference _playerMoveAction;
+    [SerializeField] private InputActionReference _playerDashAction;
 
     private readonly InputBindingInfo _playerMoveBindingInfo = new InputBindingInfo();
+    private readonly InputBindingInfo _playerDashBindingInfo = new InputBindingInfo();
 
     private void Awake()
     {
@@ -57,12 +60,29 @@ public class InputManager : MonoBehaviour
         UnBindInputAction(inputActionType);
     }
 
+    public void BindPlayerDashCallback(Action<InputAction.CallbackContext> callback, InputCallbackType callbackType)
+    {
+        if (callback == null) { return; }
+
+        InputActionType inputActionType = InputActionType.PlayerDash;
+        BindInputAction(callback, callbackType, inputActionType);
+    }
+
+    public void UnbindPlayerDashCallback()
+    {
+        InputActionType inputActionType = InputActionType.PlayerDash;
+        UnBindInputAction(inputActionType);
+    }
+
+
     private InputBindingInfo GetInputBindingInfo(InputActionType inputActionType)
     {
         switch (inputActionType)
         {
             case InputActionType.PlayerMove:
                 return _playerMoveBindingInfo;
+            case InputActionType.PlayerDash:
+                return _playerDashBindingInfo;
             default:
                 break;
         }
@@ -76,6 +96,8 @@ public class InputManager : MonoBehaviour
         {
             case InputActionType.PlayerMove:
                 return _playerMoveAction;
+            case InputActionType.PlayerDash:
+                return _playerDashAction;
             default:
                 break;
         }
@@ -101,19 +123,40 @@ public class InputManager : MonoBehaviour
         DisableAction(inputActionReference);
     }
 
+    private void EnablePlayerDashAction()
+    {
+        InputActionReference inputActionReference = GetInputActionReference(InputActionType.PlayerDash);
+        
+        if (inputActionReference == null) { return; }
+        
+        EnableAction(inputActionReference);
+    }
+
+    private void DisablePlayerDashAction()
+    {
+        InputActionReference inputActionReference = GetInputActionReference(InputActionType.PlayerDash);
+
+        if (inputActionReference == null) { return; }
+
+        DisableAction(inputActionReference);
+    }
+
     private void EnableAllAction()
     {
         EnablePlayerMoveAction();
+        EnablePlayerDashAction();
     }
 
     private void DisableAllAction()
     {
         DisablePlayerMoveAction();
+        DisablePlayerDashAction();
     }
 
     private void UnbindAllInputAllCallback()
     {
         UnbindPlayerMoveCallback();
+        UnbindPlayerDashCallback();
     }
     #endregion
 

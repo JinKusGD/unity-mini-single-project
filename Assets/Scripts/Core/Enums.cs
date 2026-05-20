@@ -8,5 +8,6 @@
 
 public enum InputActionType
 {
-    PlayerMove
+    PlayerMove,
+    PlayerDash
 }
