@@ -46,6 +46,7 @@ public class InputManager : MonoBehaviour
     }
 
     #region 추가 로직(이곳에 추가하세요)
+
     public void BindPlayerMoveCallback(Action<InputAction.CallbackContext> callback, InputCallbackType callbackType)
     {
         if (callback == null) { return; }
@@ -158,6 +159,7 @@ public class InputManager : MonoBehaviour
         UnbindPlayerMoveCallback();
         UnbindPlayerDashCallback();
     }
+
     #endregion
 
     #region 주요 로직(건드리지 말아주세요)
@@ -258,4 +260,3 @@ public class InputManager : MonoBehaviour
    
     #endregion
 }
-
