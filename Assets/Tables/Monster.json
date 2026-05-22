@@ -2,6 +2,7 @@
   {
     "Id": "Monster_001_Slime",
     "Name": "슬라임",
-    "Description": "슬라임이다."
+    "Description": "슬라임이다.",
+    "PrefabKey": "Prefab/TestSlime"
   }
 ]
