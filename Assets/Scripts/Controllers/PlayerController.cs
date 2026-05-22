@@ -3,12 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : BaseController
 {
     private const float _moveInputDeadZone = 0.25f;
-
-    [Header("Components")]
-    [SerializeField] private Rigidbody2D _rigidbody;
 
     [Header("Move")]
     [SerializeField] private float _moveSpeed = 5.0f;
@@ -24,19 +21,6 @@ public class PlayerController : MonoBehaviour
     private float _rechargeTimer;
 
     public int DashCount { get; private set; }
-
-    private void Awake()
-    {
-        if (_rigidbody == null)
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-        }
-
-        _rigidbody.gravityScale = 0f;
-        _rigidbody.freezeRotation = true;
-
-        Init();
-    }
 
     private void OnEnable()
     {
@@ -60,7 +44,7 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void Init()
+    protected sealed override void Init()
     {
         DashCount = _maxDashCount;
     }
@@ -137,6 +121,3 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
-
-
-
