@@ -9,9 +9,9 @@ public class ResourceManager : MonoBehaviour
     public static ResourceManager Instance { get; private set; }
 
     private readonly Dictionary<string, AsyncOperationHandle> _loadingHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
-    private readonly Dictionary<string, AsyncOperationHandle<GameObject>> _loadingInstantiateHandleDictionary = new Dictionary<string, AsyncOperationHandle<GameObject>>();
-
     private readonly Dictionary<string, AsyncOperationHandle> _loadedHandleDictionary = new Dictionary<string, AsyncOperationHandle>();
+
+    private readonly Dictionary<string, AsyncOperationHandle<GameObject>> _loadingInstantiateHandleDictionary = new Dictionary<string, AsyncOperationHandle<GameObject>>();
 
     private void Awake()
     {
@@ -24,11 +24,10 @@ public class ResourceManager : MonoBehaviour
         Instance = this;
     }
 
-    #region 추가 로직(이곳에 추가하세요)
-
-    public async UniTask<T> GetAssetAsync<T>(string key) where T : UnityEngine.Object
+    public async UniTask<T> GetAssetAsync<T>(string key) where T : Object
     {
         T loadedAsset = await LoadAssetAsync<T>(key);
+
         return loadedAsset;
     }
 
@@ -71,10 +70,6 @@ public class ResourceManager : MonoBehaviour
         return ReleaseResult;
     }
 
-    #endregion
-
-    #region 주요 로직(건드리지 말아주세요)
-
     private async UniTask<T> LoadAssetAsync<T>(string key) where T : UnityEngine.Object
     {
         if (_loadedHandleDictionary.TryGetValue(key, out AsyncOperationHandle loadedHandle))
@@ -102,6 +97,7 @@ public class ResourceManager : MonoBehaviour
             if (loadObject == null)
             {
                 if (loadHandle.IsValid()) Addressables.Release(loadHandle);
+
                 return null;
             }
 
@@ -139,6 +135,7 @@ public class ResourceManager : MonoBehaviour
         try
         {
             await InstantiateHandle.ToUniTask();
+
             GameObject instance = InstantiateHandle.Result;
 
             if (instance == null)
@@ -167,6 +164,4 @@ public class ResourceManager : MonoBehaviour
             _loadingInstantiateHandleDictionary.Remove(key);
         }
     }
-
-#endregion
 }

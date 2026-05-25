@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance { get; private set; }
 
     private readonly Dictionary<GameObject, IPoolableObject> _componentCacheDictionary = new Dictionary<GameObject, IPoolableObject>();
-    private readonly Dictionary<string, List<GameObject>> _poolDictionary = new Dictionary<string, List<GameObject>>(); 
+    private readonly Dictionary<string, List<GameObject>> _poolDictionary = new Dictionary<string, List<GameObject>>();
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+
             return;
         }
 
-        Instance = this;    
+        Instance = this;
     }
 
     public async UniTask<PoolResult> PoolAsync(string dataId, string key, Transform parent)
@@ -31,15 +31,16 @@ public class PoolManager : MonoBehaviour
         }
 
         GameObject instance = await ResourceManager.Instance.InstantiateGameObjectAsync(key, parent);
-        
-        if(instance == null)
+
+        if (instance == null)
         {
             return new PoolResult(false, null);
         }
 
-        if(!instance.TryGetComponent(out IPoolableObject component))
+        if (!instance.TryGetComponent(out IPoolableObject component))
         {
             ResourceManager.Instance.TryReleaseInstance(instance);
+
             return new PoolResult(false, null);
         }
 
@@ -71,6 +72,7 @@ public class PoolManager : MonoBehaviour
             if (pooledObject == null)
             {
                 pooledObjectList.RemoveAt(index);
+
                 continue;
             }
 
