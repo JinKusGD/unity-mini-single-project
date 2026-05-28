@@ -25,3 +25,21 @@ public enum UIType
 {
     Debug
 }
+
+public enum SkillPattern
+{
+    Projectile,     // 직선 발사
+    Homing,         // 유도
+    Orbiting,       // 공전
+    Area,           // 범위형
+    RandomTarget,    // 랜덤 위치 지정
+    ArcZone,
+    Sweep
+}
+
+public enum UnitType
+{
+    None,
+    Player,
+    Enemy
+}
