@@ -14,7 +14,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: fa33b7cb6e5ff9d49a738f936b1e1fe5
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0f8b13ccc0a22a04292ccdbf9d325b34
+    m_Address: Prefab/Sylvia
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 113b0fb1af5af0749a585a68b305f5bc
+    m_Address: Projectile/FireOrb
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1be26dfe182df4349ac31e14c29d111d
+    m_Address: Projectile/FireBottle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 338ef4599fbac124c91e2ebd9accd7f6
+    m_Address: Data/Skill
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b1c83675c026214ba8fd7cfff7e7382
+    m_Address: UI/Main/Debug
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cfcdfed61348cc4e800dd9b2eb0334b
+    m_Address: Data/Monster
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6edff2b962d8fb04c89aacd42eb828f7
+    m_Address: Zone/FireBottle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ea1096aaedb40740816c32884a0a32a
+    m_Address: Data/Player
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca2eb74fd1a14fb4d914df5228c6c301
+    m_Address: Projectile/Fireball
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2a92ff6eed18f048999b1988c850a5f
+    m_Address: Prefab/TestSlime
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb699b1276becf643b31319db0d034b2
+    m_Address: Projectile/FireMissile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: d2e8a162f89ec764c9d19ac0a070dadd, type: 2}
   m_SchemaSet:
