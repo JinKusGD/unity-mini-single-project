@@ -6,6 +6,7 @@ public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance { get; private set; }
 
+    private readonly HashSet<string> _creatingKeys = new HashSet<string>();
     private readonly Dictionary<GameObject, IPoolableObject> _componentCacheDictionary = new Dictionary<GameObject, IPoolableObject>();
     private readonly Dictionary<string, List<GameObject>> _poolDictionary = new Dictionary<string, List<GameObject>>();
 
@@ -30,7 +31,23 @@ public class PoolManager : MonoBehaviour
             return new PoolResult(false, pooledObject);
         }
 
+        while (_creatingKeys.Contains(dataId))
+        {
+            await UniTask.Yield();
+
+            pooledObject = GetInactiveObject(dataId);
+
+            if (pooledObject != null)
+            {
+                return new PoolResult(false, pooledObject);
+            }
+        }
+
+        _creatingKeys.Add(dataId);
+
         GameObject instance = await ResourceManager.Instance.InstantiateGameObjectAsync(key, parent);
+
+        _creatingKeys.Remove(dataId);
 
         if (instance == null)
         {
