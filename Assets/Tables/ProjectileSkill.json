@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "Projectile_001_Fireball",
+    "ProjectileAddress": "Projectile/Fireball",
+    "SearchRadius": 10,
+    "Speed": 10,
+    "MaxHits": 1,
+    "Duration": 5
+  }
+]
