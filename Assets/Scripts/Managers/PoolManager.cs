@@ -14,6 +14,7 @@ public class PoolManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
+            Debug.LogWarning($"[{gameObject.name}] 이미 PoolManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
             Destroy(gameObject);
 
             return;
@@ -24,6 +25,18 @@ public class PoolManager : MonoBehaviour
 
     public async UniTask<PoolResult> PoolAsync(string dataId, string key, Transform parent)
     {
+        if (string.IsNullOrWhiteSpace(dataId))
+        {
+            Debug.LogWarning($"[오브젝트 풀링] DataId가 없어 풀링을 실패했습니다.");
+            return new PoolResult(false, null);
+        }
+
+        if (string.IsNullOrWhiteSpace(key))
+        {
+            Debug.LogWarning($"[오브젝트 풀링] Key가 없어 풀링을 실패했습니다.");
+            return new PoolResult(false, null);
+        }
+
         GameObject pooledObject = GetInactiveObject(dataId);
 
         if (pooledObject != null)
@@ -51,11 +64,13 @@ public class PoolManager : MonoBehaviour
 
         if (instance == null)
         {
+            Debug.LogError($"[오브젝트 풀링] {key} 어드레서블 에셋 인스턴스화에 실패했습니다.");
             return new PoolResult(false, null);
         }
 
         if (!instance.TryGetComponent(out IPoolableObject component))
         {
+            Debug.LogError($"[오브젝트 풀링] 생성된 오브젝트에 IPoolableObject 컴포넌트가 없어 풀링을 중단합니다.");
             ResourceManager.Instance.TryReleaseInstance(instance);
 
             return new PoolResult(false, null);
@@ -75,8 +90,15 @@ public class PoolManager : MonoBehaviour
 
     private GameObject GetInactiveObject(string dataId)
     {
+        if (string.IsNullOrWhiteSpace(dataId))
+        {
+            Debug.LogWarning($"[오브젝트 풀링] DataId가 없어 비활성화된 오브젝트를 가져오지 못했습니다.");
+            return null;
+        }
+
         if (!_poolDictionary.TryGetValue(dataId, out List<GameObject> pooledObjectList) || pooledObjectList == null)
         {
+            Debug.LogWarning($"[오브젝트 풀링] {dataId}]에 해당하는 풀 리스트가 존재하지 않아 비활성화된 오브젝트를 가져오지 못했습니다.");
             return null;
         }
 
@@ -88,12 +110,18 @@ public class PoolManager : MonoBehaviour
 
             if (pooledObject == null)
             {
+                Debug.LogWarning($"[오브젝트 풀링] {dataId} 풀 리스트 내에 제거된 오브젝트가 발견되어 리스트에서 제거했습니다.");
                 pooledObjectList.RemoveAt(index);
-
                 continue;
             }
 
-            if (!_componentCacheDictionary.TryGetValue(pooledObject, out IPoolableObject poolableObject) || poolableObject.IsActive)
+            if (!_componentCacheDictionary.TryGetValue(pooledObject, out IPoolableObject poolableObject))
+            {
+                Debug.LogWarning($"[오브젝트 풀링] {pooledObject.name} 오브젝트의 IPoolableObject 캐시 정보를 찾지 못했습니다.");
+                continue;
+            }
+
+            if (poolableObject.IsActive)
             {
                 continue;
             }
