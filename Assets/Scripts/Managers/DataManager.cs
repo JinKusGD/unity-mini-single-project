@@ -12,12 +12,13 @@ public class DataManager : MonoBehaviour
 
     public static DataManager Instance { get; private set; }
 
-    private Dictionary<string, MonsterData> _monsterTable;
-    
+    private readonly Dictionary<Type, object> _dataTables = new Dictionary<Type, object>();
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
+            Debug.LogWarning($"[{gameObject.name}] DataManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
             Destroy(gameObject);
             return;
         }
@@ -29,38 +30,63 @@ public class DataManager : MonoBehaviour
 
     public async UniTask LoadDataAsync<T>(string key) where T : GameData
     {
-        if (string.IsNullOrWhiteSpace(key)) { return; }
-
-        if (typeof(T) == typeof(MonsterData))
+        if (string.IsNullOrWhiteSpace(key))
         {
-            _monsterTable = await LoadTableAsync<MonsterData>(key);
+            Debug.LogWarning($"[{typeof(T).Name}] 어드레서블 Key가 비어 있어 데이터를 로드하지 못했습니다.");
+            return;
         }
+
+        object loadedTable = await LoadTableAsync<T>(key);
+
+        if (loadedTable == null)
+        {
+            Debug.LogError($"[{typeof(T).Name}] 어드레서블 {key}에 대한 에셋을 가져오지 못해 데이터를 로드하지 못했습니다.");
+            return;
+        }
+
+        _dataTables[typeof(T)] = loadedTable;
     }
 
     public async UniTask LoadAllDataAsync()
     {
-        await LoadDataAsync<MonsterData>(AddressableKey.Table.Monster);
+        await LoadDataAsync<PlayerData>(AddressableKey.Table.Player);
+        await LoadDataAsync<EnemyData>(AddressableKey.Table.Enemy);
+        await LoadDataAsync<SkillData>(AddressableKey.Table.Skill);
+        await LoadDataAsync<MeleeSkillData>(AddressableKey.Table.MeleeSkill);
+        await LoadDataAsync<ProjectileSkillData>(AddressableKey.Table.ProjectileSkill);
+        await LoadDataAsync<HomingSkillData>(AddressableKey.Table.HomingSkill);
+        await LoadDataAsync<OrbitingSkillData>(AddressableKey.Table.OrbitingSkill);
     }
 
     public bool TryGetData<T>(string dataId, out T data) where T : GameData
     {
+        data = null;
+
         if (string.IsNullOrWhiteSpace(dataId))
         {
-            data = null;
+            Debug.LogWarning($"[{typeof(T).Name}] DataId가 비어 있어 데이터를 가져오지 못했습니다.");
             return false;
         }
 
-        if (typeof(T) == typeof(MonsterData))
+        if (!_dataTables.TryGetValue(typeof(T), out object table))
         {
-            if (_monsterTable != null && _monsterTable.TryGetValue(dataId, out MonsterData monsterData))
-            {
-                data = monsterData as T;
-                return true;
-            }
+            Debug.LogError($"[{typeof(T).Name}] 데이터 테이블이 로드되지 않아 데이터를 가져오지 못했습니다.");
+            return false;
         }
 
-        data = null;
-        return false;
+        if (table is not Dictionary<string, T> targetTable)
+        {
+            Debug.LogError($"[{typeof(T).Name}] 타입 캐스팅에 실패하여 데이터를 가져오지 못했습니다.");
+            return false;
+        }
+
+        if (!targetTable.TryGetValue(dataId, out data))
+        {
+            Debug.LogError($"[{typeof(T).Name}] 테이블에 {dataId}를 가진 데이터가 없어 데이터를 가져오지 못했습니다.");
+            return false;
+        }
+
+        return true;
     }
 
     #endregion
@@ -73,6 +99,7 @@ public class DataManager : MonoBehaviour
 
         if (jsonAsset == null)
         {
+            Debug.LogError($"[{key}] 어드레서블 에셋을 로드하지 못하여 테이블을 로드하지 못했습니다.");
             return EmptyCacheDictionary<T>.Instance;
         }
 
@@ -83,17 +110,23 @@ public class DataManager : MonoBehaviour
 
             if (wrapper == null || wrapper.items == null)
             {
-                return EmptyCacheDictionary<T>.Instance;
+                Debug.LogError($"[{key}] JSON 파싱 결과가 비어 있거나 올바르지 않아 테이블을 로드하지 못했습니다.");
+                throw new InvalidOperationException();
             }
 
             Dictionary<string, T> dataTable = new Dictionary<string, T>();
 
             foreach (T item in wrapper.items)
             {
-                if (string.IsNullOrWhiteSpace(item.Id)) { continue; }
+                if (string.IsNullOrWhiteSpace(item.Id))
+                {
+                    Debug.LogWarning($"[{key}] 아이템의 Id가 비어 있어 테이블 추가를 건너뛰었습니다.");
+                    continue;
+                }
 
                 if (!dataTable.TryAdd(item.Id, item))
                 {
+                    Debug.LogError($"[{key}] 이미 중복된 {item.Id}가 존재하여 테이블을 로드하지 못했습니다.");
                     throw new InvalidOperationException();
                 }
             }
