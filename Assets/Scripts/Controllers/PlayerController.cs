@@ -1,11 +1,14 @@
 ﻿using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : BaseController
 {
     private const float _moveInputDeadZone = 0.25f;
+
+    [SerializeField] private Animator _animator;
 
     [Header("Move")]
     [SerializeField] private float _moveSpeed = 5.0f;
@@ -54,6 +57,7 @@ public class PlayerController : BaseController
         Vector2 moveInput = context.ReadValue<Vector2>();
 
         _moveDirection = (moveInput.sqrMagnitude > _moveInputDeadZone) ? moveInput : Vector2.zero;
+        _animator.SetFloat("Speed", _moveDirection.magnitude);
     }
 
     private void Move()
@@ -62,7 +66,17 @@ public class PlayerController : BaseController
 
         if (_isDashing) { return; }
 
+        if (_moveDirection.x != 0)
+        {
+            _spriteRenderer.flipX = (_moveDirection.x < 0);
+        }
+
         _rigidbody.linearVelocity = _moveDirection * _moveSpeed;
+
+        if (_animator.GetBool("Walk") != (_moveDirection != Vector2.zero))
+        {
+            _animator.SetBool("Walk", _moveDirection != Vector2.zero);
+        }
     }
 
     private void OnDashInput(InputAction.CallbackContext context)
@@ -88,6 +102,9 @@ public class PlayerController : BaseController
         float elapsedTime = 0f;
         float dashSpeed = _dashDistance / _dashDuration;
 
+        _spriteRenderer.enabled = false;
+        _collider.enabled = false;
+
         while (elapsedTime < _dashDuration)
         {
             Vector2 nextPosition = _rigidbody.position + (dashSpeed * Time.fixedDeltaTime * dashDirection);
@@ -98,6 +115,8 @@ public class PlayerController : BaseController
             await UniTask.WaitForFixedUpdate();
         }
 
+        _spriteRenderer.enabled = true;
+        _collider.enabled = true;
         _isDashing = false;
     }
 
