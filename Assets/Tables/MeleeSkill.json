@@ -1,0 +1,37 @@
+[
+  {
+    "Id": "Melee_001_FireWhip_Lv01",
+    "MeleeAddress": "Melee/FireWhip",
+    "Duration": 0.5,
+    "ScaleX": 1,
+    "ScaleY": 1
+  },
+  {
+    "Id": "Melee_001_FireWhip_Lv02",
+    "MeleeAddress": "Melee/FireWhip",
+    "Duration": 0.5,
+    "ScaleX": 1,
+    "ScaleY": 1
+  },
+  {
+    "Id": "Melee_001_FireWhip_Lv03",
+    "MeleeAddress": "Melee/FireWhip",
+    "Duration": 0.5,
+    "ScaleX": 1,
+    "ScaleY": 2
+  },
+  {
+    "Id": "Melee_001_FireWhip_Lv04",
+    "MeleeAddress": "Melee/FireWhip",
+    "Duration": 0.5,
+    "ScaleX": 2,
+    "ScaleY": 2
+  },
+  {
+    "Id": "Melee_001_FireWhip_Lv05",
+    "MeleeAddress": "Melee/FireWhip",
+    "Duration": 0.5,
+    "ScaleX": 3,
+    "ScaleY": 3
+  }
+]

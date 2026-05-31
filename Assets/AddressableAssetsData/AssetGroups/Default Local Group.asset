@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: fa33b7cb6e5ff9d49a738f936b1e1fe5
   m_SerializeEntries:
+  - m_GUID: 031ca0de72ea98049a5d47961377871f
+    m_Address: Data/HomingSkill
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f8b13ccc0a22a04292ccdbf9d325b34
     m_Address: Prefab/Sylvia
     m_ReadOnly: 0
@@ -30,23 +35,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 338ef4599fbac124c91e2ebd9accd7f6
-    m_Address: Data/Skill
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3b1c83675c026214ba8fd7cfff7e7382
-    m_Address: UI/Main/Debug
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3cfcdfed61348cc4e800dd9b2eb0334b
-    m_Address: Data/Monster
+  - m_GUID: 27b11b73426bdb543905abfdae3d9483
+    m_Address: Melee/FireWhip
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6edff2b962d8fb04c89aacd42eb828f7
     m_Address: Zone/FireBottle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e8be4459ccb9a24180850ec2b1ba016
+    m_Address: Data/MeleeSkill
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82602ea783bf495478476b0d28d24fad
+    m_Address: Skill/FireWhip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9504cea9f27e4564c855faa5fb72611d
+    m_Address: Data/OrbitingSkill
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ba24c78823417f49a75c965568481fd
+    m_Address: Data/Skill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -57,6 +72,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca2eb74fd1a14fb4d914df5228c6c301
     m_Address: Projectile/Fireball
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc603cea4c921054a80e8b9ca566914d
+    m_Address: Data/Player
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf7bc69e91394b3498451faa3284b657
+    m_Address: Data/Monster
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d13174e09c72869469070f0f50a71ca3
+    m_Address: Data/ProjectileSkill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
