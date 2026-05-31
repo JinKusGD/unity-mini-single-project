@@ -17,7 +17,7 @@ public class SkillData : GameData
     public string OrbitingSkillId;
     public string HomingSkillId;
     public string ArcZoneSkillId;
-    public string SweepSkillId;
+    public string MeleeSkillId;
     public string RandomTargetSkillId;
     public string AreaSkillId;
 }
