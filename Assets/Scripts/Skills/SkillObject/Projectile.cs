@@ -11,7 +11,6 @@ public class Projectile : SkillObject
     private Vector3 _moveDirection;
     private float _speed;
     private int _hitsRemaining;
-
     protected override void OnDisable()
     {
         base.OnDisable();
@@ -23,7 +22,6 @@ public class Projectile : SkillObject
             _cancellationTokenSource = null;
         }
     }
-
     private void Update()
     {
         transform.position += _speed * Time.deltaTime * _moveDirection;
@@ -58,7 +56,7 @@ public class Projectile : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, float damage, Vector3 moveDirection, float speed, int maxHits, float duration)
+    public void Setup(UnitType ownerType, float damage, Vector3 moveDirection, float speed, int maxHits, float duration, Vector3 scale)
     {
         _ownerType = ownerType;
         _damage = damage;
@@ -66,10 +64,9 @@ public class Projectile : SkillObject
         _speed = speed;
         _hitsRemaining = maxHits;
 
-
-        float angle = (Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg) - 90f;
+        float angle = (Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        
+        transform.localScale = scale;
         if (_cancellationTokenSource != null)
         {
             _cancellationTokenSource.Cancel();

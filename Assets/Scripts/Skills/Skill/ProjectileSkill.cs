@@ -2,32 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileSkill : BaseSkill
+public abstract class ProjectileSkill : BaseSkill
 {
-    private string _projectileId;
-    private string _projectileAddress;
-    private float _searchRadius;
-    [SerializeField] private float _speed;
-    [SerializeField] private int _maxHits;
-    [SerializeField] private float _duration;
+    [SerializeField] protected string _projectileId;
+    [SerializeField] protected string _projectileAddress;
+    [SerializeField] protected float _searchRadius;
+    [SerializeField] protected float _speed;
+    [SerializeField] protected int _maxHits;
+    [SerializeField] protected float _duration;
+    [SerializeField] protected Vector3 _scale;
 
-    private ContactFilter2D _contactFilter;
-    private readonly List<Collider2D> _targetList = new List<Collider2D>(128);
+    protected bool _isInitialized;
+    protected ContactFilter2D _contactFilter;
+    protected readonly List<Collider2D> _targetList = new List<Collider2D>(128);
 
-    private void Start()
-    {
-        Init("Skill_001_Fireball");
-    }
-
-    private void Init(string skillId)
+    protected void InitSkillData(string skillId)
     {
         if (!DataManager.Instance.TryGetData(skillId, out SkillData skillData))
         {
             Debug.LogError($"[{skillId}] 스킬 데이터가 없습니다.");
             return;
         }
-
-        base.Init(skillData);
 
         if (skillData.ProjectileSkillId == null)
         {
@@ -41,12 +36,15 @@ public class ProjectileSkill : BaseSkill
             return;
         }
 
+        base.Init(skillData);
+
         _projectileId = projectileSkillData.Id;
         _projectileAddress = projectileSkillData.ProjectileAddress;
         _searchRadius = projectileSkillData.SearchRadius;
         _speed = projectileSkillData.Speed;
         _duration = projectileSkillData.Duration;
         _maxHits = projectileSkillData.MaxHits;
+        _scale = new Vector3(projectileSkillData.Scale, projectileSkillData.Scale, 1);
 
         _contactFilter.useTriggers = false;
         _contactFilter.useLayerMask = true;
@@ -63,14 +61,22 @@ public class ProjectileSkill : BaseSkill
                 Debug.LogError($"[{_ownerStatus.name}] 스킬을 사용할 수 없는 UnitType 입니다.");
                 return;
         }
+
+        _isInitialized = true;
     }
 
     protected override void Fire()
     {
+        if (!_isInitialized)
+        {
+            Debug.LogError($"[{gameObject.name}] 스킬이 초기화 되지 않았습니다.");
+            return;
+        }
+
         SpawnProjectile().Forget();
     }
 
-    private async UniTask SpawnProjectile()
+    protected async UniTask SpawnProjectile()
     {
         for (int count = 0; count < _count; count++)
         {
@@ -80,7 +86,7 @@ public class ProjectileSkill : BaseSkill
                 return;
             }
 
-            GameObject projectile = await ObjectManager.Instance.SpawnSkillAsync(_projectileId, _projectileAddress, _ownerStatus.transform.position);
+            GameObject projectile = await ObjectManager.Instance.SpawnSkillObjectAsync(_projectileId, _projectileAddress, _ownerStatus.transform.position);
 
             if (projectile == null)
             {
@@ -95,6 +101,12 @@ public class ProjectileSkill : BaseSkill
                 return;
             }
 
+            if (!_ownerStatus.TryGetComponent(out SpriteRenderer ownerSpriteRenderer))
+            {
+                Debug.LogError($"[{_ownerStatus}] 근접 스킬을 생성하기 위한 SpriteRenderer 컴포넌트가 없습니다.");
+                return;
+            }
+
             if (!projectile.TryGetComponent(out Projectile projectileComponent))
             {
                 Debug.LogError($"[{projectile.name}] 생성된 투사체에 Projectile 컴포넌트가 없습니다.");
@@ -102,8 +114,7 @@ public class ProjectileSkill : BaseSkill
                 return;
             }
 
-            Vector3 moveDirection = Vector3.right;
-
+            Vector3 moveDirection = ownerSpriteRenderer.flipX ? Vector3.left : Vector3.right;
             Transform nearestTarget = FindNearestTarget();
 
             if (nearestTarget != null)
@@ -113,14 +124,13 @@ public class ProjectileSkill : BaseSkill
             }
 
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
-            Debug.Log(damage);
-            projectileComponent.Setup(_ownerStatus.UnitType, damage, moveDirection, _speed, _maxHits, _duration);
+            projectileComponent.Setup(_ownerStatus.UnitType, damage, moveDirection, _speed, _maxHits, _duration, _scale);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
         }
     }
 
-    private Transform FindNearestTarget()
+    protected Transform FindNearestTarget()
     {
         _targetList.Clear();
 
@@ -143,7 +153,7 @@ public class ProjectileSkill : BaseSkill
 
             if (target == null) { continue; }
 
-            if (!target.TryGetComponent(out BaseStatus targetStatus))
+            if (!target.TryGetComponent(out BaseStatus _))
             {
                 Debug.LogWarning($"[{target.name}] BaseStatus 컴포넌트가 없어 제외되었습니다.");
                 continue;

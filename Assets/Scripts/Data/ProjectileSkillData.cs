@@ -7,5 +7,6 @@ public class ProjectileSkillData : GameData
     public float SearchRadius;
     public float Speed;
     public int MaxHits;
-    public int Duration;
+    public float Duration;
+    public float Scale;
 }

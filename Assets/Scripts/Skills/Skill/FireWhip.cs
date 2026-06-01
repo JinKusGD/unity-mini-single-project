@@ -1,4 +1,4 @@
-﻿public class FireWhipSkill : MeleeSkill
+﻿public class FireWhip : MeleeSkill
 {
     private int _currentLevel = 1;
 
