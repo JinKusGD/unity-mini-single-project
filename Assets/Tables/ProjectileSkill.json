@@ -1,10 +1,47 @@
 [
   {
-    "Id": "Projectile_001_Fireball",
-    "ProjectileAddress": "Projectile/Fireball",
-    "SearchRadius": 10,
+    "Id": "Projectile_001_Pyroblast_Lv1",
+    "ProjectileAddress": "Projectile/Pyroblast",
+    "SearchRadius": 5,
     "Speed": 10,
-    "MaxHits": 1,
-    "Duration": 5
+    "MaxHits": 3,
+    "Duration": 5,
+    "Scale": 1
+  },
+  {
+    "Id": "Projectile_001_Pyroblast_Lv2",
+    "ProjectileAddress": "Projectile/Pyroblast",
+    "SearchRadius": 5,
+    "Speed": 15,
+    "MaxHits": 3,
+    "Duration": 5,
+    "Scale": 1
+  },
+  {
+    "Id": "Projectile_001_Pyroblast_Lv3",
+    "ProjectileAddress": "Projectile/Pyroblast",
+    "SearchRadius": 5,
+    "Speed": 15,
+    "MaxHits": 5,
+    "Duration": 5,
+    "Scale": 2
+  },
+  {
+    "Id": "Projectile_001_Pyroblast_Lv4",
+    "ProjectileAddress": "Projectile/Pyroblast",
+    "SearchRadius": 10,
+    "Speed": 15,
+    "MaxHits": 10,
+    "Duration": 5,
+    "Scale": 2
+  },
+  {
+    "Id": "Projectile_001_Pyroblast_Lv5",
+    "ProjectileAddress": "Projectile/Pyroblast",
+    "SearchRadius": 10,
+    "Speed": 15,
+    "MaxHits": 999,
+    "Duration": 5,
+    "Scale": 3
   }
 ]

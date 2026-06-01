@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "Orbiting_001_OrbitalFlame_Lv01",
+    "OrbitingProjectileAddress": "Orbiting/OrbitalFlame",
+    "Radius": 1.5,
+    "RotateSpeed": 3,
+    "Duration": 6,
+    "Scale": 1
+  },
+  {
+    "Id": "Orbiting_001_OrbitalFlame_Lv02",
+    "OrbitingProjectileAddress": "Orbiting/OrbitalFlame",
+    "Radius": 1.5,
+    "RotateSpeed": 4.5,
+    "Duration": 6,
+    "Scale": 1
+  },
+  {
+    "Id": "Orbiting_001_OrbitalFlame_Lv03",
+    "OrbitingProjectileAddress": "Orbiting/OrbitalFlame",
+    "Radius": 2,
+    "RotateSpeed": 4.5,
+    "Duration": 6,
+    "Scale": 1.3
+  },
+  {
+    "Id": "Orbiting_001_OrbitalFlame_Lv04",
+    "OrbitingProjectileAddress": "Orbiting/OrbitalFlame",
+    "Radius": 2,
+    "RotateSpeed": 6.75,
+    "Duration": 6,
+    "Scale": 1.5
+  },
+  {
+    "Id": "Orbiting_001_OrbitalFlame_Lv05",
+    "OrbitingProjectileAddress": "Orbiting/OrbitalFlame",
+    "Radius": 3,
+    "RotateSpeed": 10.125,
+    "Duration": 9,
+    "Scale": 2
+  }
+]
