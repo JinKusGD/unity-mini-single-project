@@ -1,17 +1,19 @@
-﻿public class FireWhipSkill : MeleeSkill
+﻿using UnityEngine;
+
+public class OrbitalFlame : OrbitProjectileSkill
 {
     private int _currentLevel = 1;
 
     private void Start()
     {
-        string skillDataId = $"Skill_005_FireWhip_Lv01";
+        string skillDataId = $"Skill_002_OrbitalFlame_Lv01";
         InitSkillData(skillDataId);
     }
 
     public void LevelUp()
     {
         _currentLevel++;
-        string skillDataId = $"Skill_005_FireWhip_Lv{_currentLevel:D2}";
+        string skillDataId = $"Skill_002_OrbitalFlame_Lv{_currentLevel:D2}";
         InitSkillData(skillDataId);
     }
 }

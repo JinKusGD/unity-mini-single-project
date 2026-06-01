@@ -21,12 +21,13 @@ public class Melee : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, float damage, float duration, Vector2 lookDirection)
+    public void Setup(UnitType ownerType, float damage, float duration, Vector2 lookDirection, Vector3 scale)
     {
         _ownerType = ownerType;
         _damage = damage;
 
         transform.up = lookDirection.normalized;
+        transform.localScale = scale;
 
         if (_cancellationTokenSource != null)
         {

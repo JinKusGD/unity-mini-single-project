@@ -70,8 +70,7 @@ public abstract class MeleeSkill : BaseSkill
             Vector3 spawnPosition = _ownerStatus.transform.position + new Vector3((_scale.y + 0.5f) * lookDirection.x, 0, 0);
 
             GameObject melee = await ObjectManager.Instance.SpawnSkillObjectAsync(_dataId, _meleeAddress, spawnPosition);
-            melee.transform.localScale = _scale;
-
+    
             if (melee == null)
             {
                 Debug.LogError($"[{_meleeId}] 근접 스킬을 생성하지 못했습니다.");
@@ -94,7 +93,7 @@ public abstract class MeleeSkill : BaseSkill
 
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
             Debug.Log(damage);
-            meleeComponent.Setup(_ownerStatus.UnitType, damage, _duration, lookDirection);
+            meleeComponent.Setup(_ownerStatus.UnitType, damage, _duration, lookDirection, _scale);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
         }
