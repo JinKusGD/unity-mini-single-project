@@ -82,7 +82,7 @@ public abstract class HomingSkill : BaseSkill
         {
             if (_ownerStatus == null)
             {
-                Debug.LogWarning($"[{_homingProjectileId}] 연사 도중 시전자가 소멸하여 남은 투사체 생성을 중단합니다.");
+                Debug.LogWarning($"[{_homingProjectileId}] 연사 도중 시전자가 소멸하여 남은 스킬 오브젝트 생성을 중단합니다.");
                 return;
             }
 
@@ -96,7 +96,7 @@ public abstract class HomingSkill : BaseSkill
 
             if (!homingProjectile.TryGetComponent(out HomingProjectile homingProjectileComponent))
             {
-                Debug.LogError($"[{homingProjectile.name}] 생성된 투사체에 Projectile 컴포넌트가 없습니다.");
+                Debug.LogError($"[{homingProjectile.name}] 생성된 투사체에 HomingProjectile 컴포넌트가 없습니다.");
                 ObjectManager.Instance.DespawnObject(homingProjectile);
                 return;
             }

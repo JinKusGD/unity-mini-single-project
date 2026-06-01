@@ -61,7 +61,7 @@ public abstract class OrbitProjectileSkill : BaseSkill
         {
             if (_ownerStatus == null)
             {
-                Debug.LogWarning($"[{_orbitProjectileId}] 연사 도중 시전자가 소멸하여 남은 투사체 생성을 중단합니다.");
+                Debug.LogWarning($"[{_orbitProjectileId}] 연사 도중 시전자가 소멸하여 남은 스킬 오브젝트 생성을 중단합니다.");
                 return;
             }
 

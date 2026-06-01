@@ -56,7 +56,7 @@ public abstract class MeleeSkill : BaseSkill
         {
             if (_ownerStatus == null)
             {
-                Debug.LogWarning($"[{_meleeId}] 연사 도중 시전자가 소멸하여 남은 근접 스킬 생성을 중단합니다.");
+                Debug.LogWarning($"[{_meleeId}] 연사 도중 시전자가 소멸하여 남은 스킬 오브젝트 생성을 중단합니다.");
                 return;
             }
 

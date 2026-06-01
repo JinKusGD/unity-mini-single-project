@@ -82,7 +82,7 @@ public abstract class ProjectileSkill : BaseSkill
         {
             if (_ownerStatus == null)
             {
-                Debug.LogWarning($"[{_projectileId}] 연사 도중 시전자가 소멸하여 남은 투사체 생성을 중단합니다.");
+                Debug.LogWarning($"[{_projectileId}] 연사 도중 시전자가 소멸하여 남은 스킬 오브젝트 생성을 중단합니다.");
                 return;
             }
 
