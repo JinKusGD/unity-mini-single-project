@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class HeatSeeker : HomingSkill
+﻿public class HeatSeeker : HomingSkill
 {
     private int _currentLevel = 1;
 
@@ -8,15 +6,6 @@ public class HeatSeeker : HomingSkill
     {
         string skillDataId = $"Skill_003_HeatSeeker_Lv01";
         InitSkillData(skillDataId);
-    }
-
-    protected override void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        {
-            LevelUp();
-        }
-        base.Update();
     }
 
     public void LevelUp()

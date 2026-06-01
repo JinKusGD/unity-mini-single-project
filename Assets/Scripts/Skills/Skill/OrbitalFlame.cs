@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class OrbitalFlame : OrbitProjectileSkill
+﻿public class OrbitalFlame : OrbitProjectileSkill
 {
     private int _currentLevel = 1;
 

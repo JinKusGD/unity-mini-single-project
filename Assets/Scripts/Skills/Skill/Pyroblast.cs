@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class Pyroblast : ProjectileSkill
+﻿public class Pyroblast : ProjectileSkill
 {
     private int _currentLevel = 1;
 
