@@ -86,12 +86,6 @@ public abstract class HomingSkill : BaseSkill
                 return;
             }
 
-            if (_ownerStatus == null)
-            {
-                Debug.LogWarning($"[{_homingProjectileId}] 연사 도중 시전자가 소멸하여 남은 투사체 생성을 중단합니다.");
-                return;
-            }
-
             GameObject homingProjectile = await ObjectManager.Instance.SpawnSkillObjectAsync(_dataId, _homingProjectileAddress, _ownerStatus.transform.position);
 
             if (homingProjectile == null)
