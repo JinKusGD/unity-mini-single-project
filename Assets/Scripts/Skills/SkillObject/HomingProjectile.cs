@@ -19,6 +19,53 @@ public class HomingProjectile : SkillObject
     private ContactFilter2D _contactFilter;
     private readonly List<Collider2D> _targetList = new List<Collider2D>(128);
 
+    private void Update()
+    {
+        if (_target == null || !_target.gameObject.activeInHierarchy)
+        {
+            _target = FindNearestTarget();
+
+            if (_target == null)
+            {
+                transform.position += _speed * Time.deltaTime * _moveDirection; 
+                return;
+            }
+        }
+
+        Vector2 direction = (Vector2)_target.position - (Vector2)transform.position;
+
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        Quaternion targetRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
+
+        transform.Translate(_speed * Time.deltaTime * Vector2.right, Space.Self);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        bool isTarget = false;
+
+        if (_ownerType == UnitType.Player && collision.CompareTag(GameTags.Enemy))
+        {
+            isTarget = true;
+        }
+        else if (_ownerType == UnitType.Enemy && collision.CompareTag(GameTags.Player))
+        {
+            isTarget = true;
+        }
+
+        if (!isTarget) { return; }
+
+        if (!collision.TryGetComponent(out BaseStatus targetStatus))
+        {
+            Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
+        }
+
+        targetStatus.TakeDamage(_damage);
+    }
+
     protected override void OnDisable()
     {
         base.OnDisable();
@@ -64,30 +111,6 @@ public class HomingProjectile : SkillObject
         UniTaskUtils.DelayActionAsync(duration, DespawnHoming, _cancellationTokenSource.Token).Forget();
     }
 
-    void Update()
-    {
-        if (_target == null || !_target.gameObject.activeInHierarchy)
-        {
-            _target = FindNearestTarget();
-
-            if (_target == null)
-            {
-                transform.position += _speed * Time.deltaTime * _moveDirection; 
-                return;
-            }
-        }
-
-        Vector2 direction = (Vector2)_target.position - (Vector2)transform.position;
-
-        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        Quaternion targetRotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
-
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
-
-        transform.Translate(_speed * Time.deltaTime * Vector2.right, Space.Self);
-    }
-
     private Transform FindNearestTarget()
     {
         _targetList.Clear();
@@ -127,29 +150,6 @@ public class HomingProjectile : SkillObject
         }
 
         return nearestTarget;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        bool isTarget = false;
-
-        if (_ownerType == UnitType.Player && collision.CompareTag(GameTags.Enemy))
-        {
-            isTarget = true;
-        }
-        else if (_ownerType == UnitType.Enemy && collision.CompareTag(GameTags.Player))
-        {
-            isTarget = true;
-        }
-
-        if (!isTarget) { return; }
-
-        if (!collision.TryGetComponent(out BaseStatus targetStatus))
-        {
-            Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
-        }
-
-        targetStatus.TakeDamage(_damage);
     }
 
     private void DespawnHoming()

@@ -33,28 +33,6 @@ public class OrbitProjectile : SkillObject
         transform.position = _ownerTransform.position + new Vector3(x, y, 0f);
     }
 
-    public void Setup(Transform ownerTransform, UnitType unitType, float damage, float radius, float rotateSpeed, float startAngle, float duration, Vector3 scale)
-    {
-        _ownerTransform = ownerTransform;
-        _ownerType = unitType;
-        _damage = damage;
-        _radius = radius;
-        _rotateSpeed = rotateSpeed;
-        _angle = startAngle;
-
-        transform.localScale = scale;
-
-        if (_cancellationTokenSource != null)
-        {
-            _cancellationTokenSource.Cancel();
-            _cancellationTokenSource.Dispose();
-        }
-        _cancellationTokenSource = new CancellationTokenSource();
-
-        UniTaskUtils.DelayActionAsync(duration, DespawnOrbitProjectile, _cancellationTokenSource.Token).Forget();
-    }
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool isTarget = false;
@@ -76,6 +54,27 @@ public class OrbitProjectile : SkillObject
         }
 
         targetStatus.TakeDamage(_damage);
+    }
+
+    public void Setup(Transform ownerTransform, UnitType unitType, float damage, float radius, float rotateSpeed, float startAngle, float duration, Vector3 scale)
+    {
+        _ownerTransform = ownerTransform;
+        _ownerType = unitType;
+        _damage = damage;
+        _radius = radius;
+        _rotateSpeed = rotateSpeed;
+        _angle = startAngle;
+
+        transform.localScale = scale;
+
+        if (_cancellationTokenSource != null)
+        {
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
+        }
+        _cancellationTokenSource = new CancellationTokenSource();
+
+        UniTaskUtils.DelayActionAsync(duration, DespawnOrbitProjectile, _cancellationTokenSource.Token).Forget();
     }
 
     private void DespawnOrbitProjectile()
