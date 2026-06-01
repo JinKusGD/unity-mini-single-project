@@ -103,7 +103,7 @@ public abstract class ProjectileSkill : BaseSkill
 
             if (!_ownerStatus.TryGetComponent(out SpriteRenderer ownerSpriteRenderer))
             {
-                Debug.LogError($"[{_ownerStatus}] 근접 스킬을 생성하기 위한 SpriteRenderer 컴포넌트가 없습니다.");
+                Debug.LogError($"[{_ownerStatus}] 투사체 스킬을 생성하기 위한 SpriteRenderer 컴포넌트가 없습니다.");
                 return;
             }
 

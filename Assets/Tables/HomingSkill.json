@@ -1,0 +1,47 @@
+[
+  {
+    "Id": "Homing_001_HeatSeeker_Lv01",
+    "HomingProjectileAddress": "Homing/HeatSeeker",
+    "SearchRadius": 10,
+    "ChainSearchRadius": 5,
+    "Speed": 10,
+    "RotateSpeed": 150,
+    "Duration": 5
+  },
+  {
+    "Id": "Homing_001_HeatSeeker_Lv02",
+    "HomingProjectileAddress": "Homing/HeatSeeker",
+    "SearchRadius": 10,
+    "ChainSearchRadius": 10,
+    "Speed": 15,
+    "RotateSpeed": 150,
+    "Duration": 5
+  },
+  {
+    "Id": "Homing_001_HeatSeeker_Lv03",
+    "HomingProjectileAddress": "Homing/HeatSeeker",
+    "SearchRadius": 10,
+    "ChainSearchRadius": 10,
+    "Speed": 30,
+    "RotateSpeed": 300,
+    "Duration": 10
+  },
+  {
+    "Id": "Homing_001_HeatSeeker_Lv04",
+    "HomingProjectileAddress": "Homing/HeatSeeker",
+    "SearchRadius": 20,
+    "ChainSearchRadius": 10,
+    "Speed": 30,
+    "RotateSpeed": 300,
+    "Duration": 10
+  },
+  {
+    "Id": "Homing_001_HeatSeeker_Lv05",
+    "HomingProjectileAddress": "Homing/HeatSeeker",
+    "SearchRadius": 20,
+    "ChainSearchRadius": 20,
+    "Speed": 36,
+    "RotateSpeed": 432,
+    "Duration": 10
+  }
+]

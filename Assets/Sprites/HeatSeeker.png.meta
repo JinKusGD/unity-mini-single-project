@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: f6a801c2239378b4e9cc69abbe9d8320
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2093016618804598808
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_0
+  - first:
+      213: 148604093277063191
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_1
+  - first:
+      213: 7577576027059604799
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_2
+  - first:
+      213: -707587044288098149
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_3
+  - first:
+      213: -6056274534007964070
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_4
+  - first:
+      213: 545262056706260172
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_5
+  - first:
+      213: 7107710090682552360
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_6
+  - first:
+      213: 8361133040560165950
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_7
+  - first:
+      213: 8914317436528078341
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_8
+  - first:
+      213: 1286935271391882741
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_9
+  - first:
+      213: 4218175573592960874
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_10
+  - first:
+      213: -2045374107349002272
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_11
+  - first:
+      213: 509652277501944480
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_12
+  - first:
+      213: 7448291759557443874
+    second: Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HeatSeeker_01
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 295
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81856d88683eb0d10800000000000000
+      internalID: 2093016618804598808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatSeeker_02
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 295
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718c2ffa2a2ff0200800000000000000
+      internalID: 148604093277063191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatSeeker_03
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 202
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b901a8905552e26f0800000000000000
+      internalID: -707587044288098149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatSeeker_04
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 202
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccb97f93f8219700800000000000000
+      internalID: 545262056706260172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatSeeker_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 110
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820d7915ba8a3a260800000000000000
+      internalID: 7107710090682552360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatSeeker_06
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 109
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e34de528336b80470800000000000000
+      internalID: 8361133040560165950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeatSeeker_07
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 16
+        width: 284
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fdeb349fcc1cd110800000000000000
+      internalID: 1286935271391882741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5b193bcb096c9ca4ab526203f3f5dbab
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_10: 4218175573592960874
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_11: -2045374107349002272
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_12: 509652277501944480
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_13: 7448291759557443874
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_2: 7577576027059604799
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_4: -6056274534007964070
+      Gemini_Generated_Image_5b0f415b0f415b0f-removebg-preview_8: 8914317436528078341
+      HeatSeeker_0: 7107710090682552360
+      HeatSeeker_01: 2093016618804598808
+      HeatSeeker_02: 148604093277063191
+      HeatSeeker_03: -707587044288098149
+      HeatSeeker_04: 545262056706260172
+      HeatSeeker_06: 8361133040560165950
+      HeatSeeker_07: 1286935271391882741
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
