@@ -9,5 +9,6 @@
         public const string ProjectileSkill = "Data/ProjectileSkill";
         public const string HomingSkill = "Data/HomingSkill";
         public const string OrbitingSkill = "Data/OrbitingSkill";
+        public const string RandomTargetSkill = "Data/RandomTargetSkill";
     }
 }

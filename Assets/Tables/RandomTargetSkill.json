@@ -1,0 +1,47 @@
+[
+  {
+    "Id": "RandomTarget_001_Eruption_Lv01",
+    "RandomTargetAddress": "RandomTarget/Eruption",
+    "SearchRadius": 5,
+    "HitCount": 1,
+    "Duration": 0.3,
+    "ScaleX": 1,
+    "ScaleY": 1
+  },
+  {
+    "Id": "RandomTarget_001_Eruption_Lv02",
+    "RandomTargetAddress": "RandomTarget/Eruption",
+    "SearchRadius": 5,
+    "HitCount": 1,
+    "Duration": 0.3,
+    "ScaleX": 1,
+    "ScaleY": 1
+  },
+  {
+    "Id": "RandomTarget_001_Eruption_Lv03",
+    "RandomTargetAddress": "RandomTarget/Eruption",
+    "SearchRadius": 10,
+    "HitCount": 2,
+    "Duration": 0.3,
+    "ScaleX": 1.5,
+    "ScaleY": 1.5
+  },
+  {
+    "Id": "RandomTarget_001_Eruption_Lv04",
+    "RandomTargetAddress": "RandomTarget/Eruption",
+    "SearchRadius": 10,
+    "HitCount": 2,
+    "Duration": 0.3,
+    "ScaleX": 1.5,
+    "ScaleY": 2
+  },
+  {
+    "Id": "RandomTarget_001_Eruption_Lv05",
+    "RandomTargetAddress": "RandomTarget/Eruption",
+    "SearchRadius": 10,
+    "HitCount": 3,
+    "Duration": 0.3,
+    "ScaleX": 2,
+    "ScaleY": 2.5
+  }
+]

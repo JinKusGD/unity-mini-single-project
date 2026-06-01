@@ -1,0 +1,583 @@
+fileFormatVersion: 2
+guid: 08a50b66050b0344286c3388217a1f6b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4853541820659357673
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_0
+  - first:
+      213: -7506990917364671576
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_1
+  - first:
+      213: 1536877293267499038
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_2
+  - first:
+      213: -2719323044724078752
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_3
+  - first:
+      213: 2301397269257432931
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_4
+  - first:
+      213: -4886955404893292816
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_5
+  - first:
+      213: 1181058923121824528
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_6
+  - first:
+      213: 4269719730378253577
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_7
+  - first:
+      213: -3094503815152909291
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_8
+  - first:
+      213: 9068398316802981899
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_9
+  - first:
+      213: 8251188911047469397
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_10
+  - first:
+      213: 7428803445706204954
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_11
+  - first:
+      213: -7351474809794722073
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_12
+  - first:
+      213: 1955407471158572037
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_13
+  - first:
+      213: -4251082988897937595
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_14
+  - first:
+      213: 5914700667749909936
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_15
+  - first:
+      213: 4814173294690374351
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_16
+  - first:
+      213: 6398703013438421724
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_17
+  - first:
+      213: 4230871601616135999
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_18
+  - first:
+      213: -3432945935478839918
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_19
+  - first:
+      213: -8747540258409064692
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_20
+  - first:
+      213: 5382842414652243188
+    second: Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Eruption_03
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 718a815ed61c4acb0800000000000000
+      internalID: -4853541820659357673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_04
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ab156ec88fc1d790800000000000000
+      internalID: -7506990917364671576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_05
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e18b29861c5145510800000000000000
+      internalID: 1536877293267499038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_06
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06700b13916034ad0800000000000000
+      internalID: -2719323044724078752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_07
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36fa4218f9430ff10800000000000000
+      internalID: 2301397269257432931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_02
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0135b7345d6f36010800000000000000
+      internalID: 1181058923121824528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 187
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00cac2093c69dd70800000000000000
+      internalID: 9068398316802981899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_08
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 188
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55960a1199c128270800000000000000
+      internalID: 8251188911047469397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a172487df59681760800000000000000
+      internalID: 7428803445706204954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e604fa3c905af990800000000000000
+      internalID: -7351474809794722073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_13
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5043d8d1cb0032b10800000000000000
+      internalID: 1955407471158572037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_14
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54758087b8e1105c0800000000000000
+      internalID: -4251082988897937595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_15
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5cffd7bec351250800000000000000
+      internalID: 5914700667749909936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_10
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdaf73b2d72ccc850800000000000000
+      internalID: 6398703013438421724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_16
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f372e983e4317ba30800000000000000
+      internalID: 4230871601616135999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eruption_09
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 14
+        width: 79
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fcb04718a2b3ba40800000000000000
+      internalID: 5382842414652243188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ab0c12cf1b7f658459d72ab499e7f446
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Eruption_01: 9068398316802981899
+      Eruption_02: 1181058923121824528
+      Eruption_03: -4853541820659357673
+      Eruption_04: -7506990917364671576
+      Eruption_05: 1536877293267499038
+      Eruption_06: -2719323044724078752
+      Eruption_07: 2301397269257432931
+      Eruption_08: 8251188911047469397
+      Eruption_09: 5382842414652243188
+      Eruption_10: 6398703013438421724
+      Eruption_11: 7428803445706204954
+      Eruption_12: -7351474809794722073
+      Eruption_13: 1955407471158572037
+      Eruption_14: -4251082988897937595
+      Eruption_15: 5914700667749909936
+      Eruption_16: 4230871601616135999
+      Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_16: 4814173294690374351
+      Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_19: -3432945935478839918
+      Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_20: -8747540258409064692
+      Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_5: -4886955404893292816
+      Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_7: 4269719730378253577
+      Gemini_Generated_Image_1af0qp1af0qp1af0-removebg-preview_8: -3094503815152909291
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

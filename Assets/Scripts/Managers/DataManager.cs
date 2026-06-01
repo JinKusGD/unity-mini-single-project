@@ -26,6 +26,11 @@ public class DataManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        LoadAllDataAsync().Forget();
+    }
+
     #region 추가 로직(이곳에 추가하세요)
 
     public async UniTask LoadDataAsync<T>(string key) where T : GameData
@@ -56,6 +61,7 @@ public class DataManager : MonoBehaviour
         await LoadDataAsync<ProjectileSkillData>(AddressableKey.Table.ProjectileSkill);
         await LoadDataAsync<HomingSkillData>(AddressableKey.Table.HomingSkill);
         await LoadDataAsync<OrbitingSkillData>(AddressableKey.Table.OrbitingSkill);
+        await LoadDataAsync<RandomTargetSkillData>(AddressableKey.Table.RandomTargetSkill);
     }
 
     public bool TryGetData<T>(string dataId, out T data) where T : GameData

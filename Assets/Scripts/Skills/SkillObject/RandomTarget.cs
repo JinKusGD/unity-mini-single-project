@@ -2,20 +2,13 @@
 using System.Threading;
 using UnityEngine;
 
-public class Projectile : SkillObject
+public class RandomTarget : SkillObject
 {
     private CancellationTokenSource _cancellationTokenSource;
-    
+
     private UnitType _ownerType;
     private float _damage;
-    private Vector3 _moveDirection;
-    private float _speed;
-    private int _hitsRemaining;
-
-    private void Update()
-    {
-        transform.position += _speed * Time.deltaTime * _moveDirection;
-    }
+    private int _hitCount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,12 +30,10 @@ public class Projectile : SkillObject
             Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
         }
 
-        targetStatus.TakeDamage(_damage);
-        _hitsRemaining--;
-
-        if (_hitsRemaining <= 0)
+        for (int currentHit = 0; currentHit < _hitCount; currentHit++) 
         {
-            DespawnProjectile();
+            Debug.Log(_damage);
+            targetStatus.TakeDamage(_damage);
         }
     }
 
@@ -58,17 +49,13 @@ public class Projectile : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, float damage, Vector3 moveDirection, float speed, int maxHits, float duration, Vector3 scale)
+    public void Setup(UnitType ownerType, float damage, int hitCount, float duration, Vector3 _scale)
     {
         _ownerType = ownerType;
         _damage = damage;
-        _moveDirection = moveDirection;
-        _speed = speed;
-        _hitsRemaining = maxHits;
+        _hitCount = hitCount;
 
-        float angle = (Mathf.Atan2(_moveDirection.y, _moveDirection.x) * Mathf.Rad2Deg);
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.localScale = scale;
+        transform.localScale = _scale;
 
         if (_cancellationTokenSource != null)
         {
@@ -77,10 +64,10 @@ public class Projectile : SkillObject
         }
         _cancellationTokenSource = new CancellationTokenSource();
 
-        UniTaskUtils.DelayActionAsync(duration, DespawnProjectile, _cancellationTokenSource.Token).Forget();
+        UniTaskUtils.DelayActionAsync(duration, DespawnRandomTarget, _cancellationTokenSource.Token).Forget();
     }
 
-    private void DespawnProjectile()
+    private void DespawnRandomTarget()
     {
         ObjectManager.Instance.DespawnObject(InstanceId);
     }

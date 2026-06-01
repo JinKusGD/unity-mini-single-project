@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3443054660532236828
+--- !u!1 &493013427875228124
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4913258752920109044}
-  - component: {fileID: 6596238187640966464}
+  - component: {fileID: 926198440660401122}
+  - component: {fileID: 6660649964976733471}
   m_Layer: 0
-  m_Name: OrbitalFlame
+  m_Name: Eruption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4913258752920109044
+--- !u!4 &926198440660401122
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3443054660532236828}
+  m_GameObject: {fileID: 493013427875228124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,26 +32,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6596238187640966464
+--- !u!114 &6660649964976733471
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3443054660532236828}
+  m_GameObject: {fileID: 493013427875228124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db1904a57a2f284aa1919e34ca34cd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 821ddf6b7580ef84c8ff31e40285b824, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::OrbitalFlame
+  m_EditorClassIdentifier: Assembly-CSharp::Eruption
   _baseDamage: 0
   _damageMultiplier: 0
   _cooldown: 0
   _count: 0
   _delay: 0
-  _orbitProjectileId: 
-  _orbitProjectileAddress: 
-  _radius: 0
-  _rotateSpeed: 0
+  _randomTargetId: 
+  _randomTargetAddress: 
+  _searchRadius: 0
+  _hitCount: 0
   _duration: 0
   _scale: {x: 0, y: 0, z: 0}
