@@ -92,7 +92,6 @@ public abstract class MeleeSkill : BaseSkill
             }
 
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
-            Debug.Log(damage);
             meleeComponent.Setup(_ownerStatus.UnitType, damage, _duration, lookDirection, _scale);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
