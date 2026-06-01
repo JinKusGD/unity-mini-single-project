@@ -11,17 +11,7 @@ public class Projectile : SkillObject
     private Vector3 _moveDirection;
     private float _speed;
     private int _hitsRemaining;
-    protected override void OnDisable()
-    {
-        base.OnDisable();
 
-        if (_cancellationTokenSource != null)
-        {
-            _cancellationTokenSource.Cancel();
-            _cancellationTokenSource.Dispose();
-            _cancellationTokenSource = null;
-        }
-    }
     private void Update()
     {
         transform.position += _speed * Time.deltaTime * _moveDirection;
@@ -53,6 +43,18 @@ public class Projectile : SkillObject
         if (_hitsRemaining <= 0)
         {
             DespawnProjectile();
+        }
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        if (_cancellationTokenSource != null)
+        {
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
+            _cancellationTokenSource = null;
         }
     }
 
