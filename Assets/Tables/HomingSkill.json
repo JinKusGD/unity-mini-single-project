@@ -13,7 +13,7 @@
     "HomingProjectileAddress": "Homing/HeatSeeker",
     "SearchRadius": 10,
     "ChainSearchRadius": 10,
-    "Speed": 15,
+    "Speed": 12,
     "RotateSpeed": 150,
     "Duration": 5
   },
@@ -22,8 +22,8 @@
     "HomingProjectileAddress": "Homing/HeatSeeker",
     "SearchRadius": 10,
     "ChainSearchRadius": 10,
-    "Speed": 30,
-    "RotateSpeed": 300,
+    "Speed": 15.6,
+    "RotateSpeed": 200,
     "Duration": 10
   },
   {
@@ -31,8 +31,8 @@
     "HomingProjectileAddress": "Homing/HeatSeeker",
     "SearchRadius": 20,
     "ChainSearchRadius": 10,
-    "Speed": 30,
-    "RotateSpeed": 300,
+    "Speed": 15.6,
+    "RotateSpeed": 200,
     "Duration": 10
   },
   {
@@ -40,8 +40,8 @@
     "HomingProjectileAddress": "Homing/HeatSeeker",
     "SearchRadius": 20,
     "ChainSearchRadius": 20,
-    "Speed": 36,
-    "RotateSpeed": 432,
+    "Speed": 23.4,
+    "RotateSpeed": 300,
     "Duration": 10
   }
 ]
