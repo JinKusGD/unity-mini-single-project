@@ -78,10 +78,10 @@ public class ObjectManager : MonoBehaviour
         InitializeBaseStatus(playerData, playerStatus);
 
         _playerObject = playerStatus;
+        CamaraManager.Instance.SetTargetPlayer();
 
         return playerInstance;
     }
-
 
     public async UniTask<GameObject> SpawnMonsterAsync(string dataId, Vector3 SpawnPosition)
     {
@@ -155,6 +155,30 @@ public class ObjectManager : MonoBehaviour
         return poolResult.ResultObject;
     }
 
+    public async UniTask<GameObject> SpawnDamagePopupTextAsync(string prefabKey, Transform SpawnRoot)
+    {
+        if (string.IsNullOrWhiteSpace(prefabKey))
+        {
+            Debug.LogWarning($"[DamageTextUI 스폰] prefabKey가 비어 있어 데미지 텍스트 HUD를 스폰하지 못했습니다.");
+            return null;
+        }
+
+        PoolResult poolResult = await PoolManager.Instance.PoolAsync("DamageText", prefabKey, SpawnRoot);
+
+        if (!poolResult.IsSuccess)
+        {
+            if (poolResult.ResultObject == null)
+            {
+                Debug.LogError($"[DamageTextUI 스폰] 풀링에 실패하여 스폰을 중단합니다.");
+                return null;
+            }
+        }
+
+        GenerateInstanceId(poolResult.ResultObject);
+        return poolResult.ResultObject;
+    }
+
+
     public void DespawnObject(int instanceId)
     {
         GameObject targetObject = FindObject(instanceId);
@@ -182,13 +206,13 @@ public class ObjectManager : MonoBehaviour
             return;
         }
 
-        if (!targetObject.activeSelf)
+        if (!targetObject.TryGetComponent(out ISpawnableObject poolableComponent))
         {
-            Debug.LogWarning($"[오브젝트 디스폰] {targetObject}는 이미 디스폰된 오브젝트 입니다.");
+            Debug.LogWarning($"[오브젝트 파괴] {targetObject} 스폰할 수 없는 오브젝트 입니다. 디스폰할 수 없습니다.");
             return;
         }
 
-        targetObject.SetActive(false);
+        DespawnObject(poolableComponent.InstanceId);
     }
 
     public void DestroyObject(int instanceId)
@@ -213,7 +237,13 @@ public class ObjectManager : MonoBehaviour
             return;
         }
 
-        targetObject.SetActive(false);
+        if(!targetObject.TryGetComponent(out ISpawnableObject poolableComponent))
+        {
+            Debug.LogWarning($"[오브젝트 파괴] {targetObject} 풀링할 수 없는 오브젝트 입니다. 파괴할 수 없습니다.");
+            return;
+        }
+
+        DestroyObject(poolableComponent.InstanceId);
     }
 
     private void SetObjectPosition(GameObject targetObject, Vector3 spawnPosition)
@@ -259,7 +289,7 @@ public class ObjectManager : MonoBehaviour
             return;
         }
 
-        baseStatus.InitStatus(unitData.MaxHp, unitData.AttackPower, unitData.MoveSpeed);
+        baseStatus.InitStatus(unitData.Id, unitData.MaxHp, unitData.AttackPower, unitData.MoveSpeed);
     }
 
     private void GenerateInstanceId(GameObject targetObject)

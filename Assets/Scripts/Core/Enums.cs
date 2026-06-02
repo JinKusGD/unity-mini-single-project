@@ -14,6 +14,7 @@ public enum InputActionType
 
 public enum UIRoot
 {
+    Hud,
     Main,
     Content,
     Popup,
@@ -23,7 +24,7 @@ public enum UIRoot
 
 public enum UIType
 {
-    Debug
+    DamagePopup
 }
 
 public enum SkillPattern

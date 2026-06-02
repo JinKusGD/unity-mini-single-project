@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [SerializeField] private RectTransform _hudRoot;
     [SerializeField] private RectTransform _mainRoot;
     [SerializeField] private RectTransform _contentRoot;
     [SerializeField] private RectTransform _popupRoot;
@@ -33,16 +34,43 @@ public class UIManager : MonoBehaviour
         InitRootDictionary();
     }
 
-    #region 추가 로직(이곳에 추가하세요)
-
-    public void OpenTempleteUI()
+    private void Start()
     {
-        OpenMainAsync(UIType.Templete);
+        OpenHudAsync(UIType.DamagePopup).Forget();
     }
 
-    public void CloseTempleteUI()
+    #region 추가 로직(이곳에 추가하세요)
+
+    public void ShowDamagePopupText(float damage, Vector3 targetPosition, Color textColor)
     {
-        CloseUI(UIType.Templete);
+        if(!_cachedUIDictionary.TryGetValue(UIType.DamagePopup, out GameObject uiObjecct))
+        {
+            Debug.LogError($"[DamageTextHud] UI가 캐싱 되지 않았습니다.");
+            return;
+        }
+
+        if(!uiObjecct.TryGetComponent(out UIBase uIBase))
+        {
+            Debug.LogError($"[SpawnDamageTextHud] UIBase 컴포넌트가 없습니다.");
+            return;
+        }
+
+        if (uIBase is not HudDamagePopup hudDamagePopup)
+        {
+            Debug.LogError($"[SpawnDamageTextHud] UIBase 컴포넌트가 DamageTextHud 컴포넌트가 아닙니다.");
+            return;
+        }
+
+        hudDamagePopup.ShowDamagePopupText(damage, targetPosition, textColor).Forget();
+    }
+    public void OpenDamageTextHud()
+    {
+        OpenHudAsync(UIType.DamagePopup).Forget();
+    }
+
+    public void CloseHUD()
+    {
+        CloseUI(UIType.DamagePopup);
     }
 
     #endregion
@@ -59,6 +87,9 @@ public class UIManager : MonoBehaviour
 
             switch (uiRoot)
             {
+                case UIRoot.Hud:
+                    targetRoot = _hudRoot;
+                    break;
                 case UIRoot.Main:
                     targetRoot = _mainRoot;
                     break;
@@ -198,6 +229,11 @@ public class UIManager : MonoBehaviour
         }
 
         return rootRectTransform;
+    }
+
+    private async UniTask OpenHudAsync(UIType uIType)
+    {
+        await OpenUIAsync(UIRoot.Hud, uIType);
     }
 
     private void OpenMainAsync(UIType uIType)

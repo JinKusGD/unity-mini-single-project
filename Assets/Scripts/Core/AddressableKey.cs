@@ -1,5 +1,7 @@
 ﻿public static class AddressableKey
 {
+    public const string DamagePopupText = "Prefab/DamagePopupText";
+
     public static class Table
     {
         public const string Player = "Data/Player";
