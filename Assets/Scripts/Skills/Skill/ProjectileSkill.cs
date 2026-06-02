@@ -93,6 +93,13 @@ public abstract class ProjectileSkill : BaseSkill
                 Debug.LogError($"[{_projectileId}] 투사체를 생성하지 못했습니다.");
                 return;
             }
+            
+            if (!projectile.TryGetComponent(out Projectile projectileComponent))
+            {
+                Debug.LogError($"[{projectile.name}] 생성된 투사체에 Projectile 컴포넌트가 없습니다.");
+                ObjectManager.Instance.DestroyObject(projectile);
+                return;
+            }
 
             if (_ownerStatus == null)
             {
@@ -104,16 +111,10 @@ public abstract class ProjectileSkill : BaseSkill
             if (!_ownerStatus.TryGetComponent(out SpriteRenderer ownerSpriteRenderer))
             {
                 Debug.LogError($"[{_ownerStatus}] 투사체 스킬을 생성하기 위한 SpriteRenderer 컴포넌트가 없습니다.");
+                ObjectManager.Instance.DestroyObject(projectile);
                 return;
             }
-
-            if (!projectile.TryGetComponent(out Projectile projectileComponent))
-            {
-                Debug.LogError($"[{projectile.name}] 생성된 투사체에 Projectile 컴포넌트가 없습니다.");
-                ObjectManager.Instance.DespawnObject(projectile);
-                return;
-            }
-
+     
             Vector3 moveDirection = ownerSpriteRenderer.flipX ? Vector3.left : Vector3.right;
             Transform nearestTarget = FindNearestTarget();
 

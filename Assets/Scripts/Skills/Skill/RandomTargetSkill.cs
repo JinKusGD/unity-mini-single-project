@@ -109,16 +109,16 @@ public abstract class RandomTargetSkill : BaseSkill
                 return;
             }
 
-            if (_ownerStatus == null)
-            {
-                Debug.LogWarning($"[{randomTarget.name}] 시전자가 소멸하여 스킬이 디스폰 되었습니다.");
-                ObjectManager.Instance.DespawnObject(randomTarget);
-                return;
-            }
-
             if (!randomTarget.TryGetComponent(out RandomTarget randomTargetComponent))
             {
                 Debug.LogError($"[{randomTarget.name}] 생성된 랜덤 타겟에 RandomTarget 컴포넌트가 없습니다.");
+                ObjectManager.Instance.DestroyObject(randomTarget);
+                return;
+            }
+
+            if (_ownerStatus == null)
+            {
+                Debug.LogWarning($"[{randomTarget.name}] 시전자가 소멸하여 스킬이 디스폰 되었습니다.");
                 ObjectManager.Instance.DespawnObject(randomTarget);
                 return;
             }

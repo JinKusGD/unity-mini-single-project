@@ -77,6 +77,13 @@ public abstract class MeleeSkill : BaseSkill
                 return;
             }
 
+            if (!melee.TryGetComponent(out Melee meleeComponent))
+            {
+                Debug.LogError($"[{melee.name}] 생성된 근접 스킬에 Melee 컴포넌트가 없습니다.");
+                ObjectManager.Instance.DestroyObject(melee);
+                return;
+            }
+
             if (_ownerStatus == null)
             {
                 Debug.LogWarning($"[{melee.name}] 시전자가 소멸하여 스킬이 디스폰 되었습니다.");
@@ -84,13 +91,6 @@ public abstract class MeleeSkill : BaseSkill
                 return;
             }
    
-            if (!melee.TryGetComponent(out Melee meleeComponent))
-            {
-                Debug.LogError($"[{melee.name}] 생성된 근접 스킬에 Melee 컴포넌트가 없습니다.");
-                ObjectManager.Instance.DespawnObject(melee);
-                return;
-            }
-
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
             meleeComponent.Setup(_ownerStatus.UnitType, _ownerStatus.DataId, _dataId, damage, _duration, lookDirection, _scale);
 

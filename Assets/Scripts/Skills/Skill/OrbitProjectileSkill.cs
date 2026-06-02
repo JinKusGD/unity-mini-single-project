@@ -80,16 +80,16 @@ public abstract class OrbitProjectileSkill : BaseSkill
                 return;
             }
 
-            if (_ownerStatus == null)
-            {
-                Debug.LogWarning($"[{orbitProjectile.name}] 시전자가 소멸하여 스킬이 디스폰 되었습니다.");
-                ObjectManager.Instance.DespawnObject(orbitProjectile);
-                return;
-            }
-
             if (!orbitProjectile.TryGetComponent(out OrbitProjectile orbitProjectileComponent))
             {
                 Debug.LogError($"[{orbitProjectile.name}] 생성된 투사체에 OrbitProjectile 컴포넌트가 없습니다.");
+                ObjectManager.Instance.DestroyObject(orbitProjectile);
+                return;
+            }
+
+            if (_ownerStatus == null)
+            {
+                Debug.LogWarning($"[{orbitProjectile.name}] 시전자가 소멸하여 스킬이 디스폰 되었습니다.");
                 ObjectManager.Instance.DespawnObject(orbitProjectile);
                 return;
             }

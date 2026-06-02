@@ -97,7 +97,7 @@ public abstract class HomingSkill : BaseSkill
             if (!homingProjectile.TryGetComponent(out HomingProjectile homingProjectileComponent))
             {
                 Debug.LogError($"[{homingProjectile.name}] 생성된 투사체에 HomingProjectile 컴포넌트가 없습니다.");
-                ObjectManager.Instance.DespawnObject(homingProjectile);
+                ObjectManager.Instance.DestroyObject(homingProjectile);
                 return;
             }
 
@@ -111,6 +111,7 @@ public abstract class HomingSkill : BaseSkill
             if (!_ownerStatus.TryGetComponent(out SpriteRenderer ownerSpriteRenderer))
             {
                 Debug.LogError($"[{_ownerStatus}] 유도 스킬을 생성하기 위한 SpriteRenderer 컴포넌트가 없습니다.");
+                ObjectManager.Instance.DestroyObject(homingProjectile);
                 return;
             }
 
