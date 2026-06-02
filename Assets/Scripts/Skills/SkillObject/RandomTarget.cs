@@ -6,8 +6,6 @@ public class RandomTarget : SkillObject
 {
     private CancellationTokenSource _cancellationTokenSource;
 
-    private UnitType _ownerType;
-    private float _damage;
     private int _hitCount;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,7 +31,7 @@ public class RandomTarget : SkillObject
         for (int currentHit = 0; currentHit < _hitCount; currentHit++) 
         {
             Debug.Log(_damage);
-            targetStatus.TakeDamage(_damage);
+            targetStatus.TakeDamage(_dataId, _damage);
         }
     }
 
@@ -49,10 +47,10 @@ public class RandomTarget : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, float damage, int hitCount, float duration, Vector3 _scale)
+    public void Setup(UnitType ownerType, string ownerId, string dataId, float damage, int hitCount, float duration, Vector3 _scale)
     {
-        _ownerType = ownerType;
-        _damage = damage;
+        Setup(ownerType, ownerId, dataId, damage);
+
         _hitCount = hitCount;
 
         transform.localScale = _scale;

@@ -6,8 +6,6 @@ public class Projectile : SkillObject
 {
     private CancellationTokenSource _cancellationTokenSource;
     
-    private UnitType _ownerType;
-    private float _damage;
     private Vector3 _moveDirection;
     private float _speed;
     private int _hitsRemaining;
@@ -37,7 +35,7 @@ public class Projectile : SkillObject
             Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
         }
 
-        targetStatus.TakeDamage(_damage);
+        targetStatus.TakeDamage(_dataId, _damage);
         _hitsRemaining--;
 
         if (_hitsRemaining <= 0)
@@ -58,10 +56,10 @@ public class Projectile : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, float damage, Vector3 moveDirection, float speed, int maxHits, float duration, Vector3 scale)
+    public void Setup(UnitType ownerType, string ownerId, string dataId, float damage, Vector3 moveDirection, float speed, int maxHits, float duration, Vector3 scale)
     {
-        _ownerType = ownerType;
-        _damage = damage;
+        Setup(ownerType, ownerId, dataId, damage);
+
         _moveDirection = moveDirection;
         _speed = speed;
         _hitsRemaining = maxHits;

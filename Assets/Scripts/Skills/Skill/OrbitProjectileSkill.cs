@@ -95,7 +95,7 @@ public abstract class OrbitProjectileSkill : BaseSkill
             }
 
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
-            orbitProjectileComponent.Setup(_ownerStatus.transform, _ownerStatus.UnitType, damage, _radius, _rotateSpeed, startAngle, _duration, _scale);
+            orbitProjectileComponent.Setup(_ownerStatus.transform, _ownerStatus.UnitType, _ownerStatus.DataId, _dataId, damage, _radius, _rotateSpeed, startAngle, _duration, _scale);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
         }

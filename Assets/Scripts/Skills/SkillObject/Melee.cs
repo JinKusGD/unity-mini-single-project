@@ -6,9 +6,6 @@ public class Melee : SkillObject
 {
     private CancellationTokenSource _cancellationTokenSource;
 
-    private UnitType _ownerType;
-    private float _damage;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool isTarget = false;
@@ -29,7 +26,7 @@ public class Melee : SkillObject
             Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
         }
 
-        targetStatus.TakeDamage(_damage);
+        targetStatus.TakeDamage(_dataId, _damage);
     }
 
     protected override void OnDisable()
@@ -44,10 +41,9 @@ public class Melee : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, float damage, float duration, Vector2 lookDirection, Vector3 scale)
+    public void Setup(UnitType ownerType, string ownerId, string dataId, float damage, float duration, Vector2 lookDirection, Vector3 scale)
     {
-        _ownerType = ownerType;
-        _damage = damage;
+        Setup(ownerType, ownerId, dataId, damage);
 
         transform.up = lookDirection.normalized;
         transform.localScale = scale;

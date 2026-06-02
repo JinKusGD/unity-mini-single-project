@@ -1,14 +1,13 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class OrbitProjectile : SkillObject
 {
     private CancellationTokenSource _cancellationTokenSource;
 
     private Transform _ownerTransform;
-    private UnitType _ownerType;
-    private float _damage;
     private float _radius;
     private float _rotateSpeed;
     private float _angle;
@@ -53,14 +52,14 @@ public class OrbitProjectile : SkillObject
             Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
         }
 
-        targetStatus.TakeDamage(_damage);
+        targetStatus.TakeDamage(_dataId, _damage);
     }
 
-    public void Setup(Transform ownerTransform, UnitType unitType, float damage, float radius, float rotateSpeed, float startAngle, float duration, Vector3 scale)
+    public void Setup(Transform ownerTransform, UnitType ownerType, string ownerId, string dataId, float damage, float radius, float rotateSpeed, float startAngle, float duration, Vector3 scale)
     {
+        Setup(ownerType, ownerId, dataId, damage);
+
         _ownerTransform = ownerTransform;
-        _ownerType = unitType;
-        _damage = damage;
         _radius = radius;
         _rotateSpeed = rotateSpeed;
         _angle = startAngle;

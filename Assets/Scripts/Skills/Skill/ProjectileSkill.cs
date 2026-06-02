@@ -124,7 +124,7 @@ public abstract class ProjectileSkill : BaseSkill
             }
 
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
-            projectileComponent.Setup(_ownerStatus.UnitType, damage, moveDirection, _speed, _maxHits, _duration, _scale);
+            projectileComponent.Setup(_ownerStatus.UnitType, _ownerStatus.DataId, _dataId, damage, moveDirection, _speed, _maxHits, _duration, _scale);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
         }

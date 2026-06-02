@@ -7,9 +7,7 @@ public class HomingProjectile : SkillObject
 {
     private CancellationTokenSource _cancellationTokenSource;
      
-    private UnitType _ownerType;
     private Vector3 _moveDirection;
-    private float _damage;
     private float _chainSearchRadius;
     private float _speed;
     private float _rotateSpeed;
@@ -63,7 +61,7 @@ public class HomingProjectile : SkillObject
             Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
         }
 
-        targetStatus.TakeDamage(_damage);
+        targetStatus.TakeDamage(_dataId, _damage);
     }
 
     protected override void OnDisable()
@@ -78,11 +76,11 @@ public class HomingProjectile : SkillObject
         }
     }
 
-    public void Setup(UnitType ownerType, Vector3 moveDirection, float damage, float chainSearchRadius, float speed, float rotateSpeed, float duration, Transform startTarget)
+    public void Setup(UnitType ownerType, string ownerId, string dataId, Vector3 moveDirection, float damage, float chainSearchRadius, float speed, float rotateSpeed, float duration, Transform startTarget)
     {
-        _ownerType = ownerType;
+        Setup(ownerType, ownerId, dataId, damage);
+
         _moveDirection = moveDirection;
-        _damage = damage;
         _chainSearchRadius = chainSearchRadius;
         _speed = speed;
         _rotateSpeed = rotateSpeed;

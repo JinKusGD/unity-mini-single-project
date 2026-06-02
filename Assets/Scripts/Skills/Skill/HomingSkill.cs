@@ -126,7 +126,7 @@ public abstract class HomingSkill : BaseSkill
 
             Vector3 moveDirection = ownerSpriteRenderer.flipX ? Vector3.left : Vector3.right;
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
-            homingProjectileComponent.Setup(_ownerStatus.UnitType, moveDirection, damage, _chainSearchRadius, _speed, _rotateSpeed, _duration, startTarget);
+            homingProjectileComponent.Setup(_ownerStatus.UnitType, _ownerStatus.DataId, _dataId, moveDirection, damage, _chainSearchRadius, _speed, _rotateSpeed, _duration, startTarget);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
         }

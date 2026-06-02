@@ -124,7 +124,7 @@ public abstract class RandomTargetSkill : BaseSkill
             }
 
             float damage = CombatUtils.CalculateDamage(_baseDamage, _ownerStatus.Power, _damageMultiplier);
-            randomTargetComponent.Setup(_ownerStatus.UnitType, damage, _hitCount, _duration, _scale);
+            randomTargetComponent.Setup(_ownerStatus.UnitType, _ownerStatus.DataId, _dataId, damage, _hitCount, _duration, _scale);
 
             await UniTaskUtils.DelayAsync(_delay, this.GetCancellationTokenOnDestroy());
         }
