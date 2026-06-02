@@ -15,6 +15,7 @@ public class PlayerController : BaseController
 
     [Header("Dash")]
     [SerializeField] private int _maxDashCount = 3;
+    [SerializeField] private int _currnetDashCount;
     [SerializeField] private float _dashDistance = 4f;
     [SerializeField] private float _dashDuration = 0.15f;
     [SerializeField] private float _dashRechargeTime = 0.6f;
@@ -23,7 +24,6 @@ public class PlayerController : BaseController
     private bool _isDashing;
     private float _rechargeTimer;
 
-    public int DashCount { get; private set; }
 
     private void OnEnable()
     {
@@ -49,7 +49,8 @@ public class PlayerController : BaseController
 
     protected sealed override void Init()
     {
-        DashCount = _maxDashCount;
+        _currnetDashCount = _maxDashCount;
+        SendDashCountEvent();
     }
 
     private void OnMoveInput(InputAction.CallbackContext context)
@@ -57,7 +58,6 @@ public class PlayerController : BaseController
         Vector2 moveInput = context.ReadValue<Vector2>();
 
         _moveDirection = (moveInput.sqrMagnitude > _moveInputDeadZone) ? moveInput : Vector2.zero;
-        _animator.SetFloat("Speed", _moveDirection.magnitude);
     }
 
     private void Move()
@@ -88,11 +88,11 @@ public class PlayerController : BaseController
     {
         if (_rigidbody == null) { return; }
 
-        if ((DashCount <= 0) || _isDashing) { return; }
+        if ((_currnetDashCount <= 0) || _isDashing) { return; }
 
         if (_moveDirection == Vector2.zero) { return; }
 
-        DashCount--;
+        _currnetDashCount--;
         _rechargeTimer = 0f;
 
         _isDashing = true;
@@ -118,11 +118,13 @@ public class PlayerController : BaseController
         _spriteRenderer.enabled = true;
         _collider.enabled = true;
         _isDashing = false;
+
+        SendDashCountEvent();
     }
 
     private void RechargeDash()
     {
-        if (DashCount >= _maxDashCount)
+        if (_currnetDashCount >= _maxDashCount)
         {
             if (_rechargeTimer == 0.0f) { return; }
 
@@ -132,11 +134,18 @@ public class PlayerController : BaseController
 
         _rechargeTimer += Time.deltaTime;
 
-        while (_rechargeTimer >= _dashRechargeTime && DashCount < _maxDashCount)
+        while (_rechargeTimer >= _dashRechargeTime && _currnetDashCount < _maxDashCount)
         {
-            DashCount = Mathf.Clamp(DashCount + 1, 0, _maxDashCount);
+            _currnetDashCount = Mathf.Clamp(_currnetDashCount + 1, 0, _maxDashCount);
 
             _rechargeTimer -= _dashRechargeTime;
+
+            SendDashCountEvent();
         }
+    }
+
+    private void SendDashCountEvent()
+    {
+        EventBus.Invoke(new DashCountInfo(_currnetDashCount, _maxDashCount));
     }
 }
