@@ -34,25 +34,25 @@ public class OrbitProjectile : SkillObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool isTarget = false;
+        string attackId = null;
 
         if (_ownerType == UnitType.Player && collision.CompareTag(GameTags.Enemy))
         {
-            isTarget = true;
+            attackId = _dataId;
         }
         else if (_ownerType == UnitType.Enemy && collision.CompareTag(GameTags.Player))
         {
-            isTarget = true;
+            attackId = _ownerId;
         }
 
-        if (!isTarget) { return; }
+        if (attackId == null) { return; }
 
         if (!collision.TryGetComponent(out BaseStatus targetStatus))
         {
             Debug.LogWarning($"[{gameObject.name}] {collision.name}에 BaseStatus 컴포넌트가 없어 데미지를 주지 못했습니다.");
         }
 
-        targetStatus.TakeDamage(_dataId, _damage);
+        targetStatus.TakeDamage(attackId, _damage);
     }
 
     public void Setup(Transform ownerTransform, UnitType ownerType, string ownerId, string dataId, float damage, float radius, float rotateSpeed, float startAngle, float duration, Vector3 scale)

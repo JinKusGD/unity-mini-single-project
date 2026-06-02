@@ -10,18 +10,18 @@ public class RandomTarget : SkillObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bool isTarget = false;
+        string attackId = null;
 
         if (_ownerType == UnitType.Player && collision.CompareTag(GameTags.Enemy))
         {
-            isTarget = true;
+            attackId = _dataId;
         }
         else if (_ownerType == UnitType.Enemy && collision.CompareTag(GameTags.Player))
         {
-            isTarget = true;
+            attackId = _ownerId;
         }
 
-        if (!isTarget) { return; }
+        if (attackId == null) { return; }
 
         if (!collision.TryGetComponent(out BaseStatus targetStatus))
         {
@@ -30,8 +30,7 @@ public class RandomTarget : SkillObject
 
         for (int currentHit = 0; currentHit < _hitCount; currentHit++) 
         {
-            Debug.Log(_damage);
-            targetStatus.TakeDamage(_dataId, _damage);
+            targetStatus.TakeDamage(attackId, _damage);
         }
     }
 
