@@ -26,11 +26,6 @@ public class DataManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        LoadAllDataAsync().Forget();
-    }
-
     #region 추가 로직(이곳에 추가하세요)
 
     public async UniTask LoadDataAsync<T>(string key) where T : GameData
@@ -62,6 +57,7 @@ public class DataManager : MonoBehaviour
         await LoadDataAsync<HomingSkillData>(AddressableKey.Table.HomingSkill);
         await LoadDataAsync<OrbitingSkillData>(AddressableKey.Table.OrbitingSkill);
         await LoadDataAsync<RandomTargetSkillData>(AddressableKey.Table.RandomTargetSkill);
+        await LoadDataAsync<AudioData>(AddressableKey.Table.Audio);
     }
 
     public bool TryGetData<T>(string dataId, out T data) where T : GameData
@@ -92,6 +88,26 @@ public class DataManager : MonoBehaviour
             return false;
         }
 
+        return true;
+    }
+
+    public bool TryGetTable<T>(out Dictionary<string, T> targetTable) where T : GameData
+    {
+        targetTable = null;
+
+        if (!_dataTables.TryGetValue(typeof(T), out object table))
+        {
+            Debug.LogError($"[{typeof(T).Name}] 데이터 테이블이 로드되지 않아 데이터를 가져오지 못했습니다.");
+            return false;
+        }
+
+        if (table is not Dictionary<string, T> typedTable)
+        {
+            Debug.LogError($"[{typeof(T).Name}] 타입 캐스팅에 실패하여 데이터를 가져오지 못했습니다.");
+            return false;
+        }
+
+        targetTable = typedTable;
         return true;
     }
 

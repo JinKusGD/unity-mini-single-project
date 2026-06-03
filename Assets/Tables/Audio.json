@@ -1,0 +1,14 @@
+[
+  {
+    "Id": "AudioClip_001_Splash",
+    "AudioClipAddress": "AudioClip/Splash"
+  },
+  {
+    "Id": "AudioClip_002_Title",
+    "AudioClipAddress": "AudioClip/Title"
+  },
+  {
+    "Id": "AudioClip_003_ButtonClick",
+    "AudioClipAddress": "AudioClip/ButtonClick"
+  }
+]

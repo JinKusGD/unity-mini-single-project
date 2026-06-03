@@ -12,5 +12,6 @@
         public const string HomingSkill = "Data/HomingSkill";
         public const string OrbitingSkill = "Data/OrbitingSkill";
         public const string RandomTargetSkill = "Data/RandomTargetSkill";
+        public const string Audio = "Data/Audio";
     }
 }
