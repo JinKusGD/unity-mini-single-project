@@ -51,6 +51,6 @@ public class UIButton : MonoBehaviour
 
     private void OnClickDefaultEvent()
     {
-        //클릭 사운드 추후 추가
+        AudioManager.Instance.PlaySFX("AudioClip_003_ButtonClick");
     }
 }

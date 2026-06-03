@@ -15,18 +15,13 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: fa33b7cb6e5ff9d49a738f936b1e1fe5
   m_SerializeEntries:
-  - m_GUID: 031ca0de72ea98049a5d47961377871f
-    m_Address: Data/HomingSkill
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f8b13ccc0a22a04292ccdbf9d325b34
     m_Address: Prefab/Sylvia
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 113b0fb1af5af0749a585a68b305f5bc
-    m_Address: Projectile/FireOrb
+    m_Address: Orbiting/OrbitalFlame
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -35,8 +30,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c1888707ed22fd48bb7bed5c0e9bbb0
+    m_Address: UI/Main/Title
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27b11b73426bdb543905abfdae3d9483
     m_Address: Melee/FireWhip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46fca65658bd48e4a88e99bb3c14bedf
+    m_Address: UI/TopMost/Splash
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58a202de545cf1d4da560b92a11f6bc7
+    m_Address: UI/Hud/DamagePopup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62ae4a55fa5fde44c8019a5af8c9693b
+    m_Address: AudioClip/ButtonClick
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a6768ba6a072e44a8b9e268885fb06e
+    m_Address: Data/MeleeSkill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,8 +65,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7e8be4459ccb9a24180850ec2b1ba016
-    m_Address: Data/MeleeSkill
+  - m_GUID: 7cd6ff786da737f4a8a7626521306417
+    m_Address: AudioClip/Splash
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -55,23 +75,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9504cea9f27e4564c855faa5fb72611d
-    m_Address: Data/OrbitingSkill
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ba24c78823417f49a75c965568481fd
+  - m_GUID: 90011fdba20a6244eb3b4e74f2632436
     m_Address: Data/Skill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ea1096aaedb40740816c32884a0a32a
-    m_Address: Data/Player
+  - m_GUID: b838fc9e83872c443b96ffa29322eb38
+    m_Address: Data/RandomTargetSkill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ca2eb74fd1a14fb4d914df5228c6c301
-    m_Address: Projectile/Fireball
+    m_Address: Projectile/Pyroblast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb5e87da4158a7948a626bd3965c5070
+    m_Address: Data/HomingSkill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -85,18 +105,43 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d13174e09c72869469070f0f50a71ca3
-    m_Address: Data/ProjectileSkill
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d2a92ff6eed18f048999b1988c850a5f
     m_Address: Prefab/TestSlime
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4ae85203fb636d46ab1653336877a22
+    m_Address: RandomTarget/Eruption
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7d256a5cd4ab994f85208145d30593a
+    m_Address: Prefab/DamagePopupText
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb699b1276becf643b31319db0d034b2
-    m_Address: Projectile/FireMissile
+    m_Address: Homing/HeatSeeker
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecc092d67a4c0214ea5b36bf32df77a5
+    m_Address: Data/OrbitingSkill
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f04020a695b664f479877de7d166785c
+    m_Address: AudioClip/Title
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fadf9b9adfed5194cbb833304b3fb2e8
+    m_Address: Data/Audio
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff6c998ea1c88fa439335c4260560bea
+    m_Address: Data/ProjectileSkill
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

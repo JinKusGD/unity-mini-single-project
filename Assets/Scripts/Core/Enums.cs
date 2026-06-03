@@ -24,6 +24,8 @@ public enum UIRoot
 
 public enum UIType
 {
+    Splash,
+    Title,
     DamagePopup
 }
 

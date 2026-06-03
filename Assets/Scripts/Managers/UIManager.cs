@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        OpenHudAsync(UIType.DamagePopup).Forget();
+        OpenSplashUI();
     }
 
     #region 추가 로직(이곳에 추가하세요)
@@ -63,12 +63,33 @@ public class UIManager : MonoBehaviour
 
         hudDamagePopup.ShowDamagePopupText(damage, targetPosition, textColor).Forget();
     }
+
+    public void OpenSplashUI()
+    {
+        OpenTopMostAsync(UIType.Splash).Forget();
+    }
+
+    public void CloseSplashUI()
+    {
+        CloseUI(UIType.Splash);
+    }
+
+    public async UniTask OpenTitleUI()
+    {
+        await OpenMainAsync(UIType.Title);
+    }
+
+    public void CloseTitleUI()
+    {
+        CloseUI(UIType.Title);
+    }
+
     public void OpenDamageTextHud()
     {
         OpenHudAsync(UIType.DamagePopup).Forget();
     }
 
-    public void CloseHUD()
+    public void CloseDamageTextHud()
     {
         CloseUI(UIType.DamagePopup);
     }
@@ -213,7 +234,6 @@ public class UIManager : MonoBehaviour
     {
         if (!_cachedUIDictionary.TryGetValue(uiType, out GameObject uiObject))
         {
-            Debug.LogWarning($"[UI 캐싱] 캐싱되지 않은 {uiType}입니다.");
             return null;
         }
 
@@ -236,14 +256,14 @@ public class UIManager : MonoBehaviour
         await OpenUIAsync(UIRoot.Hud, uIType);
     }
 
-    private void OpenMainAsync(UIType uIType)
+    private async UniTask OpenMainAsync(UIType uIType)
     {
-        OpenUIAsync(UIRoot.Main, uIType).Forget();
+        await OpenUIAsync(UIRoot.Main, uIType);
     }
 
-    private void OpenContentAsync(UIType uIType)
+    private async UniTask OpenContentAsync(UIType uIType)
     {
-        OpenUIAsync(UIRoot.Content, uIType).Forget();
+        await OpenUIAsync(UIRoot.Content, uIType);
     }
 
     private async UniTask OpenPopupAsync(UIType uIType)
@@ -256,9 +276,9 @@ public class UIManager : MonoBehaviour
         await OpenUIAsync(UIRoot.System, uiType);
     }
 
-    private void OpenTopMostAsync(UIType uiType)
+    private async UniTask OpenTopMostAsync(UIType uiType)
     {
-        OpenUIAsync(UIRoot.TopMost, uiType).Forget();
+        await OpenUIAsync(UIRoot.TopMost, uiType);
     }
 
     #endregion
