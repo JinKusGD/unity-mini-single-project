@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class UIBase : MonoBehaviour
+public abstract class UIBase : MonoBehaviour
 {
-    protected void BindButtonEventWithNullCheck(UIButton button, UnityAction action)
+    protected virtual void BindButtonEventWithNullCheck(ButtonBase button, UnityAction action)
     {
         if (button == null) { return; }
 

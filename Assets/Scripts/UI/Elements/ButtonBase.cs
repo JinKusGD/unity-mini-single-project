@@ -2,24 +2,23 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class UIButton : MonoBehaviour
+public abstract class ButtonBase : MonoBehaviour
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private Image _buttonImage;
-    [SerializeField] private Text _buttonTexT;
+    [SerializeField] protected Button _button;
+    [SerializeField] protected Image _buttonImage;
+    [SerializeField] protected Text _buttonTexT;
 
-
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         BindOnClickEvent(OnClickDefaultEvent);
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         UnBindOnClickEvent();
     }
     
-    public void EnableButton()
+    public virtual void EnableButton()
     {
         if (_button == null || _buttonImage == null) return;
 
@@ -27,7 +26,7 @@ public class UIButton : MonoBehaviour
         _buttonImage.color = Color.white;
     }
 
-    public void DisableButton()
+    public virtual void DisableButton()
     {
         if (_button == null || _buttonImage == null) return;
 
@@ -35,22 +34,19 @@ public class UIButton : MonoBehaviour
         _buttonImage.color = Color.gray;
     }
 
-    public void BindOnClickEvent(UnityAction onClick)
+    public virtual void BindOnClickEvent(UnityAction onClick)
     {
         if (_button == null) { return; }
 
         _button.onClick.AddListener(onClick);
     }
 
-    private void UnBindOnClickEvent()
+    protected virtual void UnBindOnClickEvent()
     {
         if (_button == null) { return; }
 
         _button.onClick.RemoveAllListeners();
     }
 
-    private void OnClickDefaultEvent()
-    {
-        AudioManager.Instance.PlaySFX("AudioClip_003_ButtonClick");
-    }
+    protected abstract void OnClickDefaultEvent();
 }
