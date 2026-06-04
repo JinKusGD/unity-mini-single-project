@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-public abstract class BaseSkill : MonoBehaviour
+public abstract class BaseSkill : MonoBehaviour, ILevelable
 {
     protected BaseStatus _ownerStatus;
 
-    protected string _dataId;
+    [SerializeField] protected string _dataId;
+    [SerializeField] protected string _nextLevelId;
     [SerializeField] protected float _baseDamage;
     [SerializeField] protected float _damageMultiplier;
     [SerializeField] protected float _cooldown;
@@ -50,9 +51,16 @@ public abstract class BaseSkill : MonoBehaviour
         }
     }
 
+    public virtual void LevelUp(string nextLevelId)
+    {
+        InitSkillData(nextLevelId);
+        SkillManager.Instance.AddPoolNextLevelId(_dataId, _nextLevelId);
+    }
+
     protected virtual void Init(SkillData skillData)
     {
         _dataId = skillData.Id;
+        _nextLevelId = skillData.NextLevelId;
         _baseDamage = skillData.BaseDamage;
         _damageMultiplier = skillData.DamageMultiplier;
         _cooldown = skillData.Cooldown;
@@ -68,6 +76,8 @@ public abstract class BaseSkill : MonoBehaviour
         Fire();
         _cooldownTimer = _cooldown;
     }
+
+    protected abstract void InitSkillData(string nextLevelId);
 
     protected abstract void Fire();
 }

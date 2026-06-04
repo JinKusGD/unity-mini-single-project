@@ -10,7 +10,7 @@ public abstract class MeleeSkill : BaseSkill
 
     protected bool _isInitialized;
 
-    protected void InitSkillData(string skillId)
+    protected override void InitSkillData(string skillId)
     {
         if (!DataManager.Instance.TryGetData(skillId, out SkillData skillData))
         {

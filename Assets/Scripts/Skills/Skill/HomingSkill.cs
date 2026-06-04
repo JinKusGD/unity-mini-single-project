@@ -16,7 +16,7 @@ public abstract class HomingSkill : BaseSkill
     protected ContactFilter2D _contactFilter;
     protected readonly List<Collider2D> _targetList = new List<Collider2D>(128);
 
-    protected void InitSkillData(string skillId)
+    protected override void InitSkillData(string skillId)
     {
         if (!DataManager.Instance.TryGetData(skillId, out SkillData skillData))
         {
