@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using UnityEngine;
 
-public class LogoUI : MonoBehaviour
+public class LogoImage : MonoBehaviour
 {
      private RectTransform _rectTransform;
      private RectTransform _parentRect;

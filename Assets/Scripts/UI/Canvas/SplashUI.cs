@@ -2,9 +2,9 @@
 using System.Threading;
 using UnityEngine;
 
-public class SplashUI : MonoBehaviour
+public class SplashUI : UIBase
 {
-    [SerializeField] private LogoUI _logoUI;
+    [SerializeField] private LogoImage _logoImage;
 
     private CancellationTokenSource _cancellationToken;
 
@@ -25,7 +25,7 @@ public class SplashUI : MonoBehaviour
 
     private async UniTaskVoid LoadProcess(CancellationToken token)
     {
-        _logoUI.PlayAnimation();
+        _logoImage.PlayAnimation();
 
         await DataManager.Instance.LoadAllDataAsync();
         await AudioManager.Instance.LoadAudioClipsAsync();
@@ -39,7 +39,7 @@ public class SplashUI : MonoBehaviour
 
     private bool CheckAnimationFinished()
     {
-        bool result = _logoUI.IsFinished;
+        bool result = _logoImage.IsFinished;
         return result;
     }
 }

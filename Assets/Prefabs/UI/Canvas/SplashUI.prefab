@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4310909e3acb154098507d4264284e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadingUI
-  logoUI: {fileID: 1465928453501492776}
+  _logoImage: {fileID: 1465928453501492776}
 --- !u!1 &4095612870119647533
 GameObject:
   m_ObjectHideFlags: 0
