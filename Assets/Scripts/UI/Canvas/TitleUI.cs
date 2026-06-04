@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public class TitleUI : UIBase
 {
-    [SerializeField] private UIButton Start_Button;
-    [SerializeField] private UIButton Collection_Button;
-    [SerializeField] private UIButton Option_Button;
-    [SerializeField] private UIButton Quit_Button;
+    [SerializeField] private TitleButton Start_Button;
+    [SerializeField] private TitleButton Collection_Button;
+    [SerializeField] private TitleButton Option_Button;
+    [SerializeField] private TitleButton Quit_Button;
 
     private void OnEnable()
     {
@@ -19,7 +20,7 @@ public class TitleUI : UIBase
 
     private void OnStartClick()
     {
-        Debug.Log("게임 시작");
+        GameManager.Instance.StartGame().Forget();
     }
 
     private void OnCollectionClick()

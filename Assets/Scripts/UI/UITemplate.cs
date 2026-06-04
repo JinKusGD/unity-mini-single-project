@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class TitleUI : UIBase
+public class UITemplate : UIBase
 {
-    [SerializeField] private UIButton _templateButton;
+    [SerializeField] private ButtonBase _templateButton;
 
     public void OnEnable()
     {

@@ -240,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1783785992811699473}
-  - component: {fileID: 4198697688832524627}
+  - component: {fileID: 2747822673369880719}
   m_Layer: 5
   m_Name: OptionLayout
   m_TagString: Untagged
@@ -270,7 +270,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -320}
   m_SizeDelta: {x: -1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4198697688832524627
+--- !u!114 &2747822673369880719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,9 +279,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2542342158924617408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da8122afe5b1ab9419497bb7e991a881, type: 3}
+  m_Script: {fileID: 11500000, guid: 118c209f0885d80429920bc61e2cec0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButton
+  m_EditorClassIdentifier: Assembly-CSharp::TitleButton
   _button: {fileID: 1453065477530760447}
   _buttonImage: {fileID: 3247172519929356905}
   _buttonTexT: {fileID: 6425242230726996599}
@@ -338,10 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc9591a6d37bb54880aa1ed35f37688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainUI
-  Start_Button: {fileID: 1235678706430777593}
-  Collection_Button: {fileID: 7574709641355785646}
-  Option_Button: {fileID: 4198697688832524627}
-  Quit_Button: {fileID: 2729224221887608286}
+  Start_Button: {fileID: 7516211121090725078}
+  Collection_Button: {fileID: 6416368078873069646}
+  Option_Button: {fileID: 2747822673369880719}
+  Quit_Button: {fileID: 3049302095243809253}
 --- !u!1 &4212811110802678617
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2325239724004795026}
-  - component: {fileID: 7574709641355785646}
+  - component: {fileID: 6416368078873069646}
   m_Layer: 5
   m_Name: CollectionLayout
   m_TagString: Untagged
@@ -673,7 +673,7 @@ RectTransform:
   m_AnchoredPosition: {x: -510, y: -320}
   m_SizeDelta: {x: -1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7574709641355785646
+--- !u!114 &6416368078873069646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -682,9 +682,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5262105691683912824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da8122afe5b1ab9419497bb7e991a881, type: 3}
+  m_Script: {fileID: 11500000, guid: 118c209f0885d80429920bc61e2cec0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButton
+  m_EditorClassIdentifier: Assembly-CSharp::TitleButton
   _button: {fileID: 5463471251627123773}
   _buttonImage: {fileID: 1995383509989029283}
   _buttonTexT: {fileID: 2776500329058723000}
@@ -912,7 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1274679104305959875}
-  - component: {fileID: 1235678706430777593}
+  - component: {fileID: 7516211121090725078}
   m_Layer: 5
   m_Name: StartLayout
   m_TagString: Untagged
@@ -942,7 +942,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: -1460, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1235678706430777593
+--- !u!114 &7516211121090725078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -951,9 +951,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6489886634679241996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da8122afe5b1ab9419497bb7e991a881, type: 3}
+  m_Script: {fileID: 11500000, guid: 118c209f0885d80429920bc61e2cec0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButton
+  m_EditorClassIdentifier: Assembly-CSharp::TitleButton
   _button: {fileID: 8512632676870878187}
   _buttonImage: {fileID: 6449161853657180105}
   _buttonTexT: {fileID: 2116265661604715292}
@@ -1136,7 +1136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2547747278721862151}
-  - component: {fileID: 2729224221887608286}
+  - component: {fileID: 3049302095243809253}
   m_Layer: 5
   m_Name: QuitLayout
   m_TagString: Untagged
@@ -1166,7 +1166,7 @@ RectTransform:
   m_AnchoredPosition: {x: 510, y: -320}
   m_SizeDelta: {x: -1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2729224221887608286
+--- !u!114 &3049302095243809253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1175,9 +1175,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6825155833987813402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da8122afe5b1ab9419497bb7e991a881, type: 3}
+  m_Script: {fileID: 11500000, guid: 118c209f0885d80429920bc61e2cec0c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIButton
+  m_EditorClassIdentifier: Assembly-CSharp::TitleButton
   _button: {fileID: 6748281238071984294}
   _buttonImage: {fileID: 6265634144835421652}
   _buttonTexT: {fileID: 8890571062107066197}
