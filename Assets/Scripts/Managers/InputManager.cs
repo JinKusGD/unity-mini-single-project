@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[{gameObject.name}] InputManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
+            Debug.LogWarning($"[{gameObject.name}] 이미 AudioManager 인스턴스가 존재하여 생성된 오브젝트를 파괴합니다.");
             Destroy(gameObject);
             return;
         }

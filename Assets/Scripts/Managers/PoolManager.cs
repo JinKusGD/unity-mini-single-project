@@ -14,13 +14,20 @@ public class PoolManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[{gameObject.name}] 이미 PoolManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
+            Debug.LogWarning($"[{gameObject.name}] 이미 AudioManager 인스턴스가 존재하여 생성된 오브젝트를 파괴합니다.");
             Destroy(gameObject);
 
             return;
         }
 
         Instance = this;
+    }
+
+    public void Init()
+    {
+        _creatingKeys.Clear();
+        _componentCacheDictionary.Clear();
+        _poolDictionary.Clear();
     }
 
     public async UniTask<PoolResult> PoolAsync(string dataId, string key, Transform parent)
@@ -98,7 +105,6 @@ public class PoolManager : MonoBehaviour
 
         if (!_poolDictionary.TryGetValue(dataId, out List<GameObject> pooledObjectList) || pooledObjectList == null)
         {
-            Debug.LogWarning($"[오브젝트 풀링] {dataId}]에 해당하는 풀 리스트가 존재하지 않아 비활성화된 오브젝트를 가져오지 못했습니다.");
             return null;
         }
 

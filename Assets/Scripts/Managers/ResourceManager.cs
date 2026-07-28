@@ -13,11 +13,13 @@ public class ResourceManager : MonoBehaviour
 
     private readonly Dictionary<string, AsyncOperationHandle<GameObject>> _loadingInstantiateHandleDictionary = new Dictionary<string, AsyncOperationHandle<GameObject>>();
 
+    private readonly Dictionary<string, Sprite> _cachedSprites = new Dictionary<string, Sprite>();
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[{gameObject.name}] ResourceManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
+            Debug.LogWarning($"[{gameObject.name}] 이미 AudioManager 인스턴스가 존재하여 생성된 오브젝트를 파괴합니다.");
             Destroy(gameObject);
             return;
         }
@@ -43,6 +45,22 @@ public class ResourceManager : MonoBehaviour
         return loadedAsset;
     }
 
+    public Sprite LoadSprite(string key)
+    {
+        if (string.IsNullOrWhiteSpace(key))
+        {
+            Debug.LogError($"[스프라이트 로드] Key가 없어 스프라이트를 가져오지 못했습니다.");
+        }
+
+        if (!_cachedSprites.TryGetValue(key, out Sprite sprite))
+        {
+            Debug.LogError($"[스프라이트 로드] 캐싱된 스프라이트가 없습니다.");
+            return null;
+        }
+
+        return sprite;
+    }
+
     public async UniTask<GameObject> InstantiateGameObjectAsync(string key, Transform parent = null, bool instantiateInWorldSpace = false, bool trackHandle = true)
     {
         if (string.IsNullOrWhiteSpace(key))
@@ -52,13 +70,34 @@ public class ResourceManager : MonoBehaviour
         }
 
         GameObject instantiatedGameObject = await InstantiateAsync(key, parent, instantiateInWorldSpace, trackHandle);
-        
+
         if (instantiatedGameObject == null)
         {
             Debug.LogError($"[오브젝트 동적 생성] 어드레서블 {key} 오브젝트 동적 생성에 실패했습니다.");
         }
 
         return instantiatedGameObject;
+    }
+
+    public async UniTask LoadSpriteAsync()
+    {
+        if (!DataManager.Instance.TryGetTable(out Dictionary<string, SpriteData> spriteDataTable))
+        {
+            Debug.LogError("[스프라이트 캐싱] 오디오 데이터 테이블을 가져오지 못했습니다.");
+            return;
+        }
+
+        foreach (KeyValuePair<string, SpriteData> spriteRecord in spriteDataTable)
+        {
+            if (_cachedSprites.ContainsKey(spriteRecord.Key))
+            {
+                continue;
+            }
+
+            Sprite sprite = await GetAssetAsync<Sprite>(spriteRecord.Value.SpriteAddress);
+
+            _cachedSprites[spriteRecord.Key] = sprite;
+        }
     }
 
     public bool TryRelease(string key)

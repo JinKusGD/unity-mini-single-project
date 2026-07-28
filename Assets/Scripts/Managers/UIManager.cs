@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[{gameObject.name}] UIManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
+            Debug.LogWarning($"[{gameObject.name}] 이미 AudioManager 인스턴스가 존재하여 생성된 오브젝트를 파괴합니다.");
             Destroy(gameObject);
             return;
         }
@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         CloseUI(UIType.Splash);
     }
 
-    public async UniTask OpenTitleUI()
+    public async UniTask OpenTitleUIAsync()
     {
         await OpenMainAsync(UIType.Title);
     }
@@ -84,14 +84,82 @@ public class UIManager : MonoBehaviour
         CloseUI(UIType.Title);
     }
 
-    public void OpenDamageTextHud()
+    public async UniTask OpenCollectionUIAsync()
     {
-        OpenHudAsync(UIType.DamagePopup).Forget();
+        await OpenContentAsync(UIType.Collection);
+    }
+
+    public void CloseCollectionUI()
+    {
+        CloseUI(UIType.Collection);
+    }
+
+    public async UniTask OpenOptionUIAsync()
+    {
+        await OpenContentAsync(UIType.Option);
+    }
+
+    public void CloseOptionUI()
+    {
+        CloseUI(UIType.Option);
+    }
+
+    public async UniTask OpenMainHudAsync()
+    {
+        await OpenHudAsync(UIType.MainHud);
+    }
+
+    public void CloseMainHud()
+    {
+        CloseUI(UIType.MainHud);
+    }
+
+    public async UniTask OpenFieldPopupAsync(string name)
+    {
+        if (_openedUISet.Contains(UIType.FieldPopup))
+        {
+            CloseFieldPopupHud();
+        }
+
+        GameObject gameObject = await OpenPopupAsync(UIType.FieldPopup);
+
+        gameObject.TryGetComponent(out FieldPopup fieldPopup);
+        fieldPopup.ChangeText(name);
+    }
+
+    public void CloseFieldPopupHud()
+    {
+        CloseUI(UIType.FieldPopup);
+    }
+
+    public async UniTask OpenLevelUpUIAsync()
+    {
+        await OpenPopupAsync(UIType.LevelUp);
+    }
+
+    public void CloseLevelUpUI()
+    {
+        CloseUI(UIType.LevelUp);
+    }
+
+    public async UniTask OpenDamageTextHudAsync()
+    {
+        await OpenHudAsync(UIType.DamagePopup);
     }
 
     public void CloseDamageTextHud()
     {
         CloseUI(UIType.DamagePopup);
+    }
+
+    public async UniTask OpenResultAsync()
+    {
+        await OpenContentAsync(UIType.Result);
+    }
+
+    public void CloseResult()
+    {
+        CloseUI(UIType.Result);
     }
 
     #endregion
@@ -174,12 +242,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private async UniTask OpenUIAsync(UIRoot uiRoot, UIType uiType)
+    private async UniTask<GameObject> OpenUIAsync(UIRoot uiRoot, UIType uiType)
     {
         if (_openedUISet.Contains(uiType) || _loadingSet.Contains(uiType))
         {
             Debug.LogWarning($"[UI 열기] {uiType}가 이미 열려있거나 로딩 중이므로 열지 못했습니다.");
-            return; 
+            return null; 
         }
 
         _openedUISet.Add(uiType);
@@ -189,7 +257,7 @@ public class UIManager : MonoBehaviour
         if(cachedUI != null)
         {
             cachedUI.SetActive(true);
-            return;
+            return cachedUI;
         }
         
         GameObject createdUI = await CreateUIAsync(uiRoot, uiType);
@@ -198,11 +266,12 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError($"[UI 열기] {uiType} UI 비동기 생성에 실패하여 여는 작업을 취소합니다.");
             _openedUISet.Remove(uiType);
-            return;
+            return null;
         }
 
         createdUI.SetActive(true);
         _cachedUIDictionary[uiType] = createdUI;
+        return createdUI;
     }
 
     private void CloseUI(UIType uiType)
@@ -266,9 +335,10 @@ public class UIManager : MonoBehaviour
         await OpenUIAsync(UIRoot.Content, uIType);
     }
 
-    private async UniTask OpenPopupAsync(UIType uIType)
+    private async UniTask<GameObject> OpenPopupAsync(UIType uIType)
     {
-        await OpenUIAsync(UIRoot.Popup, uIType);
+        GameObject gameObject = await OpenUIAsync(UIRoot.Popup, uIType);
+        return gameObject;
     }
 
     private async UniTask OpenSystemAsync(UIType uiType)

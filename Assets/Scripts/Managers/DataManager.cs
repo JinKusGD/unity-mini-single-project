@@ -18,7 +18,7 @@ public class DataManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[{gameObject.name}] DataManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
+            Debug.LogWarning($"[{gameObject.name}] 이미 AudioManager 인스턴스가 존재하여 생성된 오브젝트를 파괴합니다.");
             Destroy(gameObject);
             return;
         }
@@ -47,17 +47,24 @@ public class DataManager : MonoBehaviour
         _dataTables[typeof(T)] = loadedTable;
     }
 
-    public async UniTask LoadAllDataAsync()
+    public async UniTask PreloadDataAsync()
+    {
+        await LoadDataAsync<AudioData>(AddressableKey.Table.Audio);
+    }
+
+    public async UniTask LoadMainDataAsync()
     {
         await LoadDataAsync<PlayerData>(AddressableKey.Table.Player);
         await LoadDataAsync<EnemyData>(AddressableKey.Table.Enemy);
+        await LoadDataAsync<ExpData>(AddressableKey.Table.Exp);
         await LoadDataAsync<SkillData>(AddressableKey.Table.Skill);
         await LoadDataAsync<MeleeSkillData>(AddressableKey.Table.MeleeSkill);
         await LoadDataAsync<ProjectileSkillData>(AddressableKey.Table.ProjectileSkill);
         await LoadDataAsync<HomingSkillData>(AddressableKey.Table.HomingSkill);
         await LoadDataAsync<OrbitingSkillData>(AddressableKey.Table.OrbitingSkill);
         await LoadDataAsync<RandomTargetSkillData>(AddressableKey.Table.RandomTargetSkill);
-        await LoadDataAsync<AudioData>(AddressableKey.Table.Audio);
+        await LoadDataAsync<SpriteData>(AddressableKey.Table.Sprite);
+        await LoadDataAsync<FieldData>(AddressableKey.Table.Field);
     }
 
     public bool TryGetData<T>(string dataId, out T data) where T : GameData

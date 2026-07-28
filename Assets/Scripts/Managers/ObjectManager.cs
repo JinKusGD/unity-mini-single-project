@@ -6,6 +6,7 @@ public class ObjectManager : MonoBehaviour
 {
     public static ObjectManager Instance { get; private set; }
 
+    [SerializeField] private Transform _startPosition;
     [SerializeField] private Transform _spawnedObjectRoot;
 
     private PlayerStatus _playerObject;
@@ -17,7 +18,7 @@ public class ObjectManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[{gameObject.name}] ObjectManager 인스턴스가 존재하여 기존 오브젝트를 파괴했습니다.");
+            Debug.LogWarning($"[{gameObject.name}] 이미 AudioManager 인스턴스가 존재하여 생성된 오브젝트를 파괴합니다.");
             Destroy(gameObject);
             return;
         }
@@ -35,7 +36,7 @@ public class ObjectManager : MonoBehaviour
         return _playerObject;
     }
 
-    public async UniTask<GameObject> SpawnPlayerAsync(string dataId, Vector3 SpawnPosition)
+    public async UniTask<GameObject> SpawnPlayerAsync(string dataId)
     {
         if (string.IsNullOrWhiteSpace(dataId))
         {
@@ -63,7 +64,7 @@ public class ObjectManager : MonoBehaviour
             return null;
         }
 
-        InitializeSpawnableObject(playerInstance, SpawnPosition);
+        InitializeSpawnableObject(playerInstance, _startPosition.position);
 
         if (!playerInstance.TryGetComponent(out PlayerStatus playerStatus))
         {
@@ -78,12 +79,12 @@ public class ObjectManager : MonoBehaviour
         InitializeBaseStatus(playerData, playerStatus);
 
         _playerObject = playerStatus;
-        CamaraManager.Instance.SetTargetPlayer();
+        CameraManager.Instance.SetPlayerTarget(_playerObject.transform);
 
         return playerInstance;
     }
 
-    public async UniTask<GameObject> SpawnMonsterAsync(string dataId, Vector3 SpawnPosition)
+    public async UniTask<GameObject> SpawnMonsterAsync(string dataId, Vector3 SpawnPosition, float power)
     {
         if (string.IsNullOrWhiteSpace(dataId))
         {
@@ -91,13 +92,13 @@ public class ObjectManager : MonoBehaviour
             return null;
         }
 
-        if (!DataManager.Instance.TryGetData(dataId, out EnemyData monsterData))
+        if (!DataManager.Instance.TryGetData(dataId, out EnemyData enemyData))
         {
             Debug.LogError($"[몬스터 스폰] 적 테이블에서 {dataId}가 없어 스폰을 중단합니다.");
             return null;
         }
 
-        PoolResult poolResult = await PoolManager.Instance.PoolAsync(dataId, monsterData.PrefabKey, _spawnedObjectRoot);
+        PoolResult poolResult = await PoolManager.Instance.PoolAsync(dataId, enemyData.PrefabKey, _spawnedObjectRoot);
 
         if (!poolResult.IsSuccess)
         {
@@ -120,9 +121,35 @@ public class ObjectManager : MonoBehaviour
             }
         }
 
-        InitializeBaseStatus(monsterData, enemyStatus);
-
+        enemyStatus.InitStatus(enemyData, power);
         return poolResult.ResultObject;
+    }
+
+    public async UniTask<GameObject> SpawnSkillAsync(string address)
+    {
+        if (address == null)
+        {
+            Debug.LogWarning($"[스킬 스폰] 어드래서블 키가 없어 스폰을 중단합니다.");
+            return null;
+        }
+
+        if (_playerObject == null)
+        {
+            Debug.LogWarning($"[스킬 스폰] 플레이어가 없어 스폰을 중단합니다.");
+            return null;
+        }
+
+        GameObject skillInstance = await ResourceManager.Instance.InstantiateGameObjectAsync(address, _playerObject.transform);
+
+        if (skillInstance == null)
+        {
+            Debug.LogError($"[스킬 스폰] {address}로 등록된 어드레서블 프리팹이 없어 스폰을 중단합니다.");
+            return null;
+        }
+
+        InitializeSpawnableObject(skillInstance, Vector3.zero);
+
+        return skillInstance;
     }
 
     public async UniTask<GameObject> SpawnSkillObjectAsync(string dataId, string prefabKey, Vector3 SpawnPosition)
@@ -155,8 +182,35 @@ public class ObjectManager : MonoBehaviour
         return poolResult.ResultObject;
     }
 
-    public async UniTask<GameObject> SpawnDamagePopupTextAsync(string prefabKey, Transform SpawnRoot)
+    public async UniTask<GameObject> SpawnExpCoreAsync(Vector3 SpawnPosition)
     {
+        string prefabKey = AddressableKey.ExpCore;
+
+        if (string.IsNullOrWhiteSpace(prefabKey))
+        {
+            Debug.LogWarning($"[경험치 코어 스폰]  prefabKey가 비어 있어 경험치 코어를 스폰하지 못했습니다.");
+            return null;
+        }
+
+        PoolResult poolResult = await PoolManager.Instance.PoolAsync("ExpCore", prefabKey, _spawnedObjectRoot);
+
+        if (!poolResult.IsSuccess)
+        {
+            if (poolResult.ResultObject == null)
+            {
+                Debug.LogError($"[경험치 코어 스폰] ExpCore 풀링에 실패하여 스폰을 중단합니다.");
+                return null;
+            }
+        }
+
+        InitializeSpawnableObject(poolResult.ResultObject, SpawnPosition);
+        return poolResult.ResultObject;
+    }
+
+    public async UniTask<GameObject> SpawnDamagePopupTextAsync(Transform SpawnRoot)
+    {
+        string prefabKey = AddressableKey.DamagePopupText;
+
         if (string.IsNullOrWhiteSpace(prefabKey))
         {
             Debug.LogWarning($"[DamageTextUI 스폰] prefabKey가 비어 있어 데미지 텍스트 HUD를 스폰하지 못했습니다.");
@@ -176,6 +230,26 @@ public class ObjectManager : MonoBehaviour
 
         GenerateInstanceId(poolResult.ResultObject);
         return poolResult.ResultObject;
+    }
+
+    public async UniTask<CollectionSlot> SpawnMonsterSlotAsync(Transform SpawnRoot)
+    {
+        string prefabKey = AddressableKey.CollectionSlot;
+
+        if (string.IsNullOrWhiteSpace(prefabKey))
+        {
+            Debug.LogWarning($"[DamageTextUI 스폰] prefabKey가 비어 있어 데미지 텍스트 HUD를 스폰하지 못했습니다.");
+            return null;
+        }
+
+        GameObject poolResult = await ResourceManager.Instance.InstantiateGameObjectAsync(prefabKey, SpawnRoot);
+
+        if (poolResult.TryGetComponent(out CollectionSlot component))
+        {
+            return component;
+        }
+
+        return null;
     }
 
 
@@ -244,6 +318,18 @@ public class ObjectManager : MonoBehaviour
         }
 
         DestroyObject(poolableComponent.InstanceId);
+    }
+
+    public void DestroyAllObject()
+    {
+        foreach (Transform child in _spawnedObjectRoot)
+        {
+            Destroy(child.gameObject);
+        }
+
+        _instanceKeyGenerator = 0;
+        _playerObject = null;
+        _spawnedObjectDictionary.Clear();
     }
 
     private void SetObjectPosition(GameObject targetObject, Vector3 spawnPosition)
@@ -315,7 +401,7 @@ public class ObjectManager : MonoBehaviour
             instanceId++;
         }
 
-        component.SetInstanceId(instanceId);
+        component.Initialize(instanceId);
         _spawnedObjectDictionary[instanceId] = targetObject;
         _instanceKeyGenerator = instanceId;
     }
