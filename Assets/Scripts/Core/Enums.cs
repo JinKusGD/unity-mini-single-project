@@ -26,7 +26,13 @@ public enum UIType
 {
     Splash,
     Title,
-    DamagePopup
+    Collection,
+    Option,
+    MainHud,
+    LevelUp,
+    DamagePopup,
+    Result,
+    FieldPopup
 }
 
 public enum SkillPattern

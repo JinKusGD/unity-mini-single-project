@@ -14,6 +14,25 @@ public static class CombatUtils
 
 public static class UniTaskUtils
 {
+    public static void ClearToken(ref CancellationTokenSource cancellationTokenSource)
+    {
+        if (cancellationTokenSource == null) return;
+
+        try
+        {
+            if (!cancellationTokenSource.IsCancellationRequested)
+            {
+                cancellationTokenSource.Cancel();
+            }
+        }
+        catch (ObjectDisposedException) { }
+        finally
+        {
+            cancellationTokenSource.Dispose();
+            cancellationTokenSource = null;
+        }
+    }
+
     public static async UniTask DelayAsync(float duration, CancellationToken token)
     {
         try

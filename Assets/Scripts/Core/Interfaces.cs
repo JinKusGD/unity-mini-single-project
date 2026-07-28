@@ -2,7 +2,7 @@
 {
     int InstanceId { get; }
 
-    void SetInstanceId(int instanceId);
+    void Initialize(int instanceId);
 }
 
 public interface IPoolableObject : ISpawnableObject
