@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "Monster_001_GrassSlime",
+    "Name": "초원 슬라임",
+    "Description": "초원 슬라임이다.",
+    "MaxHp": 100,
+    "AttackPower": 5,
+    "MoveSpeed": 1,
+    "PrefabKey": "Prefab/GrassSlime",
+    "ExpValue": 5
+  },
+  {
+    "Id": "Monster_002_SandSlime",
+    "Name": "모래 슬라임",
+    "Description": "모래 슬라임이다.",
+    "MaxHp": 200,
+    "AttackPower": 15,
+    "MoveSpeed": 1.5,
+    "PrefabKey": "Prefab/SandSlime",
+    "ExpValue": 25
+  },
+  {
+    "Id": "Monster_003_LavaSlime",
+    "Name": "용암 슬라임",
+    "Description": "용암 슬라임이다.",
+    "MaxHp": 400,
+    "AttackPower": 25,
+    "MoveSpeed": 2,
+    "PrefabKey": "Prefab/LavaSlime",
+    "ExpValue": 50
+  },
+  {
+    "Id": "Monster_004_IceSlime",
+    "Name": "얼음 슬라임",
+    "Description": "얼음 슬라임이다.",
+    "MaxHp": 800,
+    "AttackPower": 50,
+    "MoveSpeed": 2.5,
+    "PrefabKey": "Prefab/IceSlime",
+    "ExpValue": 100
+  }
+]

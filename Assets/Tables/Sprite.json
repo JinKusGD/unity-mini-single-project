@@ -1,0 +1,102 @@
+﻿[
+  {
+    "Id": "Sprite_001_Pyroblast_01",
+    "SpriteAddress": "Sprite/Pyroblast[1]"
+  },
+  {
+    "Id": "Sprite_001_Pyroblast_02",
+    "SpriteAddress": "Sprite/Pyroblast[2]"
+  },
+  {
+    "Id": "Sprite_001_Pyroblast_03",
+    "SpriteAddress": "Sprite/Pyroblast[3]"
+  },
+  {
+    "Id": "Sprite_001_Pyroblast_04",
+    "SpriteAddress": "Sprite/Pyroblast[4]"
+  },
+  {
+    "Id": "Sprite_001_Pyroblast_05",
+    "SpriteAddress": "Sprite/Pyroblast[5]"
+  },
+  {
+    "Id": "Sprite_002_OrbitalFlame_01",
+    "SpriteAddress": "Sprite/OrbitalFlame[1]"
+  },
+  {
+    "Id": "Sprite_002_OrbitalFlame_02",
+    "SpriteAddress": "Sprite/OrbitalFlame[2]"
+  },
+  {
+    "Id": "Sprite_002_OrbitalFlame_03",
+    "SpriteAddress": "Sprite/OrbitalFlame[3]"
+  },
+  {
+    "Id": "Sprite_002_OrbitalFlame_04",
+    "SpriteAddress": "Sprite/OrbitalFlame[4]"
+  },
+  {
+    "Id": "Sprite_002_OrbitalFlame_05",
+    "SpriteAddress": "Sprite/OrbitalFlame[5]"
+  },
+  {
+    "Id": "Sprite_003_HeatSeeker_01",
+    "SpriteAddress": "Sprite/HeatSeeker[1]"
+  },
+  {
+    "Id": "Sprite_003_HeatSeeker_02",
+    "SpriteAddress": "Sprite/HeatSeeker[2]"
+  },
+  {
+    "Id": "Sprite_003_HeatSeeker_03",
+    "SpriteAddress": "Sprite/HeatSeeker[3]"
+  },
+  {
+    "Id": "Sprite_003_HeatSeeker_04",
+    "SpriteAddress": "Sprite/HeatSeeker[4]"
+  },
+  {
+    "Id": "Sprite_003_HeatSeeker_05",
+    "SpriteAddress": "Sprite/HeatSeeker[5]"
+  },
+  {
+    "Id": "Sprite_005_FireWhip_01",
+    "SpriteAddress": "Sprite/FireWhip[1]"
+  },
+  {
+    "Id": "Sprite_005_FireWhip_02",
+    "SpriteAddress": "Sprite/FireWhip[2]"
+  },
+  {
+    "Id": "Sprite_005_FireWhip_03",
+    "SpriteAddress": "Sprite/FireWhip[3]"
+  },
+  {
+    "Id": "Sprite_005_FireWhip_04",
+    "SpriteAddress": "Sprite/FireWhip[4]"
+  },
+  {
+    "Id": "Sprite_005_FireWhip_05",
+    "SpriteAddress": "Sprite/FireWhip[5]"
+  },
+  {
+    "Id": "Sprite_006_Eruption_01",
+    "SpriteAddress": "Sprite/Eruption[1]"
+  },
+  {
+    "Id": "Sprite_006_Eruption_02",
+    "SpriteAddress": "Sprite/Eruption[2]"
+  },
+  {
+    "Id": "Sprite_006_Eruption_03",
+    "SpriteAddress": "Sprite/Eruption[3]"
+  },
+  {
+    "Id": "Sprite_006_Eruption_04",
+    "SpriteAddress": "Sprite/Eruption[4]"
+  },
+  {
+    "Id": "Sprite_006_Eruption_05",
+    "SpriteAddress": "Sprite/Eruption[5]"
+  }
+]

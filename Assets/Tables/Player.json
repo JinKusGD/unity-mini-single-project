@@ -1,10 +1,10 @@
-[
+﻿[
   {
     "Id": "Player_001_Sylvia",
     "Name": "실비아",
     "Description": "실비아이다.",
     "MaxHp": 100,
-    "AttackPower": 10,
+    "AttackPower": 30,
     "MoveSpeed": 3,
     "PrefabKey": "Prefab/Sylvia"
   }

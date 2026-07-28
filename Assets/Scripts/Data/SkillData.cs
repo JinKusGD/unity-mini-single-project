@@ -12,7 +12,9 @@ public class SkillData : GameData
     public float Cooldown;
     public int Count;
     public float Delay;
+    public string SpriteId;
     public string SkillAddress;
+    public string NextLevelId;
     public string ProjectileSkillId;
     public string OrbitingSkillId;
     public string HomingSkillId;

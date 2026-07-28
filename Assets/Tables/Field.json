@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "Field_001_Grass",
+    "AudioClipId": "AudioClip_004_GrassField",
+    "SpwanMonsterID": "Monster_001_GrassSlime",
+    "Name": "초원"
+  },
+  {
+    "Id": "Field_002_Sand",
+    "AudioClipId": "AudioClip_005_SandField",
+    "SpwanMonsterID": "Monster_002_SandSlime",
+    "Name": "사막"
+  },
+  {
+    "Id": "Field_003_Lava",
+    "AudioClipId": "AudioClip_006_LavaField",
+    "SpwanMonsterID": "Monster_003_LavaSlime",
+    "Name": "용암 지대"
+  },
+  {
+    "Id": "Field_004_Ice",
+    "AudioClipId": "AudioClip_007_IceField",
+    "SpwanMonsterID": "Monster_004_IceSlime",
+    "Name": "얼음 지역"
+  }
+]

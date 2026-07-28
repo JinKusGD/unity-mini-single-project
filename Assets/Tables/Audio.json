@@ -10,5 +10,21 @@
   {
     "Id": "AudioClip_003_ButtonClick",
     "AudioClipAddress": "AudioClip/ButtonClick"
+  },
+  {
+    "Id": "AudioClip_004_GrassField",
+    "AudioClipAddress": "AudioClip/GrassField"
+  },
+  {
+    "Id": "AudioClip_005_SandField",
+    "AudioClipAddress": "AudioClip/SandField"
+  },
+  {
+    "Id": "AudioClip_006_LavaField",
+    "AudioClipAddress": "AudioClip/LavaField"
+  },
+  {
+    "Id": "AudioClip_007_IceField",
+    "AudioClipAddress": "AudioClip/IceField"
   }
 ]

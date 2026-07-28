@@ -1,0 +1,402 @@
+[
+  {
+    "Id": "Level_001",
+    "RequiredExp": 5
+  },
+  {
+    "Id": "Level_002",
+    "RequiredExp": 20
+  },
+  {
+    "Id": "Level_003",
+    "RequiredExp": 45
+  },
+  {
+    "Id": "Level_004",
+    "RequiredExp": 80
+  },
+  {
+    "Id": "Level_005",
+    "RequiredExp": 125
+  },
+  {
+    "Id": "Level_006",
+    "RequiredExp": 180
+  },
+  {
+    "Id": "Level_007",
+    "RequiredExp": 245
+  },
+  {
+    "Id": "Level_008",
+    "RequiredExp": 320
+  },
+  {
+    "Id": "Level_009",
+    "RequiredExp": 405
+  },
+  {
+    "Id": "Level_010",
+    "RequiredExp": 500
+  },
+  {
+    "Id": "Level_011",
+    "RequiredExp": 605
+  },
+  {
+    "Id": "Level_012",
+    "RequiredExp": 720
+  },
+  {
+    "Id": "Level_013",
+    "RequiredExp": 845
+  },
+  {
+    "Id": "Level_014",
+    "RequiredExp": 980
+  },
+  {
+    "Id": "Level_015",
+    "RequiredExp": 1125
+  },
+  {
+    "Id": "Level_016",
+    "RequiredExp": 1280
+  },
+  {
+    "Id": "Level_017",
+    "RequiredExp": 1445
+  },
+  {
+    "Id": "Level_018",
+    "RequiredExp": 1620
+  },
+  {
+    "Id": "Level_019",
+    "RequiredExp": 1805
+  },
+  {
+    "Id": "Level_020",
+    "RequiredExp": 2600
+  },
+  {
+    "Id": "Level_021",
+    "RequiredExp": 2867
+  },
+  {
+    "Id": "Level_022",
+    "RequiredExp": 3147
+  },
+  {
+    "Id": "Level_023",
+    "RequiredExp": 3440
+  },
+  {
+    "Id": "Level_024",
+    "RequiredExp": 3746
+  },
+  {
+    "Id": "Level_025",
+    "RequiredExp": 4065
+  },
+  {
+    "Id": "Level_026",
+    "RequiredExp": 4387
+  },
+  {
+    "Id": "Level_027",
+    "RequiredExp": 4742
+  },
+  {
+    "Id": "Level_028",
+    "RequiredExp": 5100
+  },
+  {
+    "Id": "Level_029",
+    "RequiredExp": 5471
+  },
+  {
+    "Id": "Level_030",
+    "RequiredExp": 5855
+  },
+  {
+    "Id": "Level_031",
+    "RequiredExp": 6252
+  },
+  {
+    "Id": "Level_032",
+    "RequiredExp": 6662
+  },
+  {
+    "Id": "Level_033",
+    "RequiredExp": 7085
+  },
+  {
+    "Id": "Level_034",
+    "RequiredExp": 7521
+  },
+  {
+    "Id": "Level_035",
+    "RequiredExp": 7970
+  },
+  {
+    "Id": "Level_036",
+    "RequiredExp": 8432
+  },
+  {
+    "Id": "Level_037",
+    "RequiredExp": 8907
+  },
+  {
+    "Id": "Level_038",
+    "RequiredExp": 9395
+  },
+  {
+    "Id": "Level_039",
+    "RequiredExp": 9896
+  },
+  {
+    "Id": "Level_040",
+    "RequiredExp": 12810
+  },
+  {
+    "Id": "Level_041",
+    "RequiredExp": 13458
+  },
+  {
+    "Id": "Level_042",
+    "RequiredExp": 14122
+  },
+  {
+    "Id": "Level_043",
+    "RequiredExp": 14802
+  },
+  {
+    "Id": "Level_044",
+    "RequiredExp": 15498
+  },
+  {
+    "Id": "Level_045",
+    "RequiredExp": 16210
+  },
+  {
+    "Id": "Level_046",
+    "RequiredExp": 16938
+  },
+  {
+    "Id": "Level_047",
+    "RequiredExp": 17682
+  },
+  {
+    "Id": "Level_048",
+    "RequiredExp": 18442
+  },
+  {
+    "Id": "Level_049",
+    "RequiredExp": 19218
+  },
+  {
+    "Id": "Level_050",
+    "RequiredExp": 20010
+  },
+  {
+    "Id": "Level_051",
+    "RequiredExp": 20818
+  },
+  {
+    "Id": "Level_052",
+    "RequiredExp": 21642
+  },
+  {
+    "Id": "Level_053",
+    "RequiredExp": 22482
+  },
+  {
+    "Id": "Level_054",
+    "RequiredExp": 23338
+  },
+  {
+    "Id": "Level_055",
+    "RequiredExp": 24210
+  },
+  {
+    "Id": "Level_056",
+    "RequiredExp": 25098
+  },
+  {
+    "Id": "Level_057",
+    "RequiredExp": 26002
+  },
+  {
+    "Id": "Level_058",
+    "RequiredExp": 26922
+  },
+  {
+    "Id": "Level_059",
+    "RequiredExp": 27858
+  },
+  {
+    "Id": "Level_060",
+    "RequiredExp": 28810
+  },
+  {
+    "Id": "Level_061",
+    "RequiredExp": 29778
+  },
+  {
+    "Id": "Level_062",
+    "RequiredExp": 30762
+  },
+  {
+    "Id": "Level_063",
+    "RequiredExp": 31762
+  },
+  {
+    "Id": "Level_064",
+    "RequiredExp": 32778
+  },
+  {
+    "Id": "Level_065",
+    "RequiredExp": 33810
+  },
+  {
+    "Id": "Level_066",
+    "RequiredExp": 34858
+  },
+  {
+    "Id": "Level_067",
+    "RequiredExp": 35922
+  },
+  {
+    "Id": "Level_068",
+    "RequiredExp": 37002
+  },
+  {
+    "Id": "Level_069",
+    "RequiredExp": 38098
+  },
+  {
+    "Id": "Level_070",
+    "RequiredExp": 39210
+  },
+  {
+    "Id": "Level_071",
+    "RequiredExp": 40338
+  },
+  {
+    "Id": "Level_072",
+    "RequiredExp": 41482
+  },
+  {
+    "Id": "Level_073",
+    "RequiredExp": 42642
+  },
+  {
+    "Id": "Level_074",
+    "RequiredExp": 43818
+  },
+  {
+    "Id": "Level_075",
+    "RequiredExp": 45010
+  },
+  {
+    "Id": "Level_076",
+    "RequiredExp": 46218
+  },
+  {
+    "Id": "Level_077",
+    "RequiredExp": 47442
+  },
+  {
+    "Id": "Level_078",
+    "RequiredExp": 48682
+  },
+  {
+    "Id": "Level_079",
+    "RequiredExp": 49938
+  },
+  {
+    "Id": "Level_080",
+    "RequiredExp": 51210
+  },
+  {
+    "Id": "Level_081",
+    "RequiredExp": 52498
+  },
+  {
+    "Id": "Level_082",
+    "RequiredExp": 53802
+  },
+  {
+    "Id": "Level_083",
+    "RequiredExp": 55122
+  },
+  {
+    "Id": "Level_084",
+    "RequiredExp": 56458
+  },
+  {
+    "Id": "Level_085",
+    "RequiredExp": 57810
+  },
+  {
+    "Id": "Level_086",
+    "RequiredExp": 59178
+  },
+  {
+    "Id": "Level_087",
+    "RequiredExp": 60562
+  },
+  {
+    "Id": "Level_088",
+    "RequiredExp": 61962
+  },
+  {
+    "Id": "Level_089",
+    "RequiredExp": 63378
+  },
+  {
+    "Id": "Level_090",
+    "RequiredExp": 64810
+  },
+  {
+    "Id": "Level_091",
+    "RequiredExp": 66258
+  },
+  {
+    "Id": "Level_092",
+    "RequiredExp": 67722
+  },
+  {
+    "Id": "Level_093",
+    "RequiredExp": 69202
+  },
+  {
+    "Id": "Level_094",
+    "RequiredExp": 70698
+  },
+  {
+    "Id": "Level_095",
+    "RequiredExp": 72210
+  },
+  {
+    "Id": "Level_096",
+    "RequiredExp": 73738
+  },
+  {
+    "Id": "Level_097",
+    "RequiredExp": 75282
+  },
+  {
+    "Id": "Level_098",
+    "RequiredExp": 76842
+  },
+  {
+    "Id": "Level_099",
+    "RequiredExp": 78418
+  },
+  {
+    "Id": "Level_100",
+    "RequiredExp": null
+  }
+]
