@@ -20,11 +20,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0f091ffa9f5dddd45bd4f0a8d83e5210
-    m_Address: Prefab/IceSlime
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f8b13ccc0a22a04292ccdbf9d325b34
     m_Address: Prefab/Sylvia
     m_ReadOnly: 0
@@ -35,18 +30,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1be26dfe182df4349ac31e14c29d111d
-    m_Address: Projectile/FireBottle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1c1888707ed22fd48bb7bed5c0e9bbb0
     m_Address: UI/Main/Title
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce2b9977e021d94aa1e9f0d7d9d67c3
-    m_Address: UI/Popup/LevelUp
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -60,11 +45,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 332294afb89820a448a233073c34bf4a
-    m_Address: Prefab/SandSlime
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40ff3cfea300b41478e6f8df91faf558
     m_Address: AudioClip/SandField
     m_ReadOnly: 0
@@ -75,23 +55,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 484f62f2b79a6a3408e28b2d4b03c203
-    m_Address: Prefab/LavaSlime
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4f5835a28f522674b83cafede41b76f5
-    m_Address: Data/Sprite
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58a202de545cf1d4da560b92a11f6bc7
     m_Address: UI/Hud/DamagePopup
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5cebd05a587ef334aacd59299e2b06f0
-    m_Address: Prefab/CollectionSlot
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,11 +80,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6edff2b962d8fb04c89aacd42eb828f7
-    m_Address: Zone/FireBottle
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ffb710cb19ed2e498ea1a18a472486e
     m_Address: Skill/HeatSeeker
     m_ReadOnly: 0
@@ -140,11 +100,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 795cf838150afec4e9153e701433614b
-    m_Address: UI/Content/Result
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79e963f76cb619747adac20ce38f113f
     m_Address: Skill/OrbitalFlame
     m_ReadOnly: 0
@@ -157,16 +112,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82602ea783bf495478476b0d28d24fad
     m_Address: Skill/FireWhip
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 94c916551db7b7448a5bbe7113df6c46
-    m_Address: Prefab/Dash
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 95d1983fe6bda5a42bbbb90ad26a5be4
-    m_Address: Data/Enemy
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -185,26 +130,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a4ea45e3b3c62e443942ad31281caaac
-    m_Address: Data/Field
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: abe51a68b672fd149aa454ac6b643138
-    m_Address: Data/Exp
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b275c1d2260cf3a46b7051948015fdaf
-    m_Address: UI/Popup/FieldPopup
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b7dd4f479eb04df45989d54819400d4a
-    m_Address: UI/Content/Collection
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b81134df915333f4caaccbdd052e1445
     m_Address: AudioClip/GrassField
     m_ReadOnly: 0
@@ -215,18 +140,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b8579e4980286cf4ab7d62b4d7094864
-    m_Address: UI/Content/Option
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9da24fe70f6a834c83d594cd6c91b21
     m_Address: Monster_004_IceSlime
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c7bbde8317255d34ab7a9a3931810584
-    m_Address: UI/Hud/MainHud
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -250,11 +165,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d2a92ff6eed18f048999b1988c850a5f
-    m_Address: Prefab/GrassSlime
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de9a6d01007d65d439255a90549c78f4
     m_Address: AudioClip/IceField
     m_ReadOnly: 0
@@ -267,11 +177,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4ae85203fb636d46ab1653336877a22
     m_Address: RandomTarget/Eruption
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e618e33c45b4096448f805c758709892
-    m_Address: Prefab/ExpCore
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
