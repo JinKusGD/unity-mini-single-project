@@ -10,31 +10,38 @@ public class SplashUI : UIBase
 
     private void Start()
     {
-        _cancellationToken = new CancellationTokenSource();
-        LoadProcess(_cancellationToken.Token).Forget();
+        PlaySplashSequenceAsync().Forget();
     }
 
     private void OnDisable()
     {
-        if (_cancellationToken == null) { return; }
-
-        _cancellationToken.Cancel();
-        _cancellationToken.Dispose();
-        _cancellationToken = null;
+        UniTaskUtils.ClearToken(ref _cancellationToken);
     }
 
-    private async UniTaskVoid LoadProcess(CancellationToken token)
+    private async UniTask PlaySplashSequenceAsync()
     {
+        _cancellationToken = new CancellationTokenSource();
+        //_cancellationToken(ref _cancellationToken);
+
         _logoImage.PlayAnimation();
 
-        await DataManager.Instance.LoadAllDataAsync();
+        await DataManager.Instance.PreloadDataAsync();
         await AudioManager.Instance.LoadAudioClipsAsync();
         AudioManager.Instance.PlaySFX("AudioClip_001_Splash");
 
-        await UniTask.WaitUntil(CheckAnimationFinished, cancellationToken: token);
+        await DataManager.Instance.LoadMainDataAsync();
+        await ResourceManager.Instance.LoadSpriteAsync();
+        await UniTask.WaitUntil(CheckAnimationFinished, cancellationToken: _cancellationToken.Token);
+        await UniTask.Delay(1500);
 
-        await UIManager.Instance.OpenTitleUI();
+        await UIManager.Instance.OpenTitleUIAsync();
         UIManager.Instance.CloseSplashUI();
+
+
+       await ResourceManager.Instance.LoadSpriteAsync();
+
+
+
     }
 
     private bool CheckAnimationFinished()

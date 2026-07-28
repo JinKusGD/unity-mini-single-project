@@ -20,17 +20,17 @@ public class TitleUI : UIBase
 
     private void OnStartClick()
     {
-        GameManager.Instance.StartGame().Forget();
+         GameManager.Instance.StartGame().Forget();
     }
 
     private void OnCollectionClick()
     {
-        Debug.Log("도감 열림");
+        UIManager.Instance.OpenCollectionUIAsync().Forget();
     }
 
     private void OnOptionClick()
     {
-        Debug.Log("옵션 열림");
+        UIManager.Instance.OpenOptionUIAsync().Forget();
     }
 
     private void OnQuitClick()

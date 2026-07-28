@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HudDamagePopupText : MonoBehaviour, IPoolableObject
@@ -57,11 +58,13 @@ public class HudDamagePopupText : MonoBehaviour, IPoolableObject
 
         Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0f, 0.3f), 0f);
 
+        if (!GameManager.Instance.IsPlay) { return; }
+
         _rectTransform.position = Camera.main.WorldToScreenPoint(targetPosition + randomOffset);
         gameObject.SetActive(true);
     }
 
-    public void SetInstanceId(int instanceId)
+    public void Initialize(int instanceId)
     {
         InstanceId = instanceId;
     }

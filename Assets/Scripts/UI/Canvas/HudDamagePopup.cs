@@ -6,8 +6,15 @@ public class HudDamagePopup : UIBase
 {
     private readonly Dictionary<GameObject, HudDamagePopupText> _popupTextComponentCache = new Dictionary<GameObject, HudDamagePopupText>();
 
-    private void Start()
+    private void OnEnable()
     {
+        foreach(var a in _popupTextComponentCache.Keys)
+        {
+           Destroy(a);
+        }
+
+        _popupTextComponentCache.Clear();
+
         WarmUpPopupTextPool().Forget();
     }
 
@@ -38,7 +45,7 @@ public class HudDamagePopup : UIBase
 
     private async UniTask<GameObject> SpawnDamagePopupText()
     {
-        GameObject damagePopupText = await ObjectManager.Instance.SpawnDamagePopupTextAsync(AddressableKey.DamagePopupText, transform);
+        GameObject damagePopupText = await ObjectManager.Instance.SpawnDamagePopupTextAsync(transform);
 
         if (damagePopupText == null)
         {
