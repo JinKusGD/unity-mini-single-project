@@ -3,6 +3,6 @@
     private void Start()
     {
         string skillDataId = $"Skill_002_OrbitalFlame_Lv01";
-        InitSkillData(skillDataId);
+        LevelUp(skillDataId);
     }
 }

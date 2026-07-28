@@ -3,6 +3,6 @@
     private void Start()
     {
         string skillDataId = $"Skill_003_HeatSeeker_Lv01";
-        InitSkillData(skillDataId);
+        LevelUp(skillDataId);
     }
 }

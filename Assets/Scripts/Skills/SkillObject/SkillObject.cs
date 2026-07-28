@@ -33,4 +33,9 @@ public class SkillObject : MonoBehaviour, IPoolableObject
         _dataId = dataId;
         _damage = damage;
     }
+
+    public void Initialize(int instanceId)
+    {
+       InstanceId =instanceId;
+    }
 }

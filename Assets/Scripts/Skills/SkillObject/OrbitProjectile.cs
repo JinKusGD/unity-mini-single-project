@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Threading;
 using UnityEngine;
-using UnityEngine.U2D;
 
 public class OrbitProjectile : SkillObject
 {
