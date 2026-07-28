@@ -3,35 +3,47 @@
 [RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
-public abstract class BaseController : MonoBehaviour
+[RequireComponent(typeof(Animator))]
+public abstract class BaseController : MonoBehaviour, IPoolableObject
 {
     [Header("Components")]
     [SerializeField] protected SpriteRenderer _spriteRenderer;
     [SerializeField] protected Rigidbody2D _rigidbody;
     [SerializeField] protected Collider2D _collider;
 
-    private void Awake()
+    [Header("Settings")]
+    protected float _moveSpeed;
+
+    public bool IsActive { get; private set; }
+
+    public int InstanceId { get; private set; }
+
+    protected virtual void OnEnable()
     {
-        if (_spriteRenderer == null)
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-        }
+        IsActive = true;
+    }
 
-        if (_rigidbody == null)
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-        }
+    protected virtual void OnDisable()
+    {
+        IsActive = false;
+    }
 
-        if (_collider == null)
+    public void Initialize(int instanceId)
+    {
+        InstanceId = instanceId;
+
+        if (_spriteRenderer == null || _rigidbody == null || _collider == null)
         {
-            _collider = GetComponent<Collider2D>();
+            Debug.LogError($"[{gameObject.name}] 베이스 필수 컴포넌트 중 일부가 누락되었습니다.");
+            ObjectManager.Instance.DespawnObject(instanceId);
+            return;
         }
 
         _rigidbody.gravityScale = 0f;
         _rigidbody.freezeRotation = true;
 
-        Init();
+        Initialize();
     }
 
-    protected virtual void Init() { }
+    protected abstract void Initialize();
 }

@@ -1,50 +1,35 @@
 ﻿using UnityEngine;
 
-public abstract class BaseStatus : MonoBehaviour, IPoolableObject
+public abstract class BaseStatus : MonoBehaviour
 {
+    public string DataId { get; private set; }
+
     public abstract UnitType UnitType { get; }
 
-    public int InstanceId { get; private set; }
+    public float MaxHp { get; protected set; }
 
-    public bool IsActive { get; private set; }
+    public float Hp { get; protected set; }
 
-    public float MaxHp { get; private set; }
+    public float Power { get; protected set; }
 
-    public float Hp { get; private set; }
+    public float MoveSpeed { get; protected set; }
 
-    public float Power { get; private set; }
-
-    public float MoveSpeed { get; private set; }
-
-    private void OnEnable()
+    public virtual void InitStatus(string dataId, float maxHp, float power, float moveSpeed)
     {
-        IsActive = true;
-    }
-
-    private void OnDisable()
-    {
-        IsActive = false;
-    }
-
-    public void SetInstanceId(int instanceId)
-    {
-        InstanceId = instanceId;
-    }
-
-    public void InitStatus(float maxHp, float power, float moveSpeed)
-    {
+        DataId = dataId;
         MaxHp = maxHp;
-        Hp = MaxHp;
+        Hp = maxHp;
         Power = power;
-        MoveSpeed = moveSpeed;
+        MoveSpeed = Mathf.Clamp(moveSpeed, 0f, 5f);
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(string id, float damage)
     {
         Hp -= damage;
 
         if (Hp <= 0)
         {
+            Hp = 0;
             Die();
         }
     }

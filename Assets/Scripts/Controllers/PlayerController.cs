@@ -1,17 +1,13 @@
 ﻿using Cysharp.Threading.Tasks;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : BaseController
 {
     private const float _moveInputDeadZone = 0.25f;
+    [SerializeField] protected Animator _animator;
 
-    [SerializeField] private Animator _animator;
-
-    [Header("Move")]
-    [SerializeField] private float _moveSpeed = 5.0f;
+    [SerializeField] private PlayerStatus _playerStatus;
 
     [Header("Dash")]
     [SerializeField] private int _maxDashCount = 3;
@@ -20,18 +16,17 @@ public class PlayerController : BaseController
     [SerializeField] private float _dashDuration = 0.15f;
     [SerializeField] private float _dashRechargeTime = 0.6f;
 
-    private Vector2 _moveDirection;
+    public Vector2 _moveDirection { get; private set; }
     private bool _isDashing;
     private float _rechargeTimer;
 
-
-    private void OnEnable()
+    protected override void OnEnable()
     {
         InputManager.Instance.BindPlayerMoveCallback(OnMoveInput, InputCallbackType.Performed);
         InputManager.Instance.BindPlayerDashCallback(OnDashInput, InputCallbackType.Started);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
         InputManager.Instance.UnbindPlayerMoveCallback();
         InputManager.Instance.UnbindPlayerDashCallback();
@@ -45,12 +40,6 @@ public class PlayerController : BaseController
     private void FixedUpdate()
     {
         Move();
-    }
-
-    protected sealed override void Init()
-    {
-        _currnetDashCount = _maxDashCount;
-        SendDashCountEvent();
     }
 
     private void OnMoveInput(InputAction.CallbackContext context)
@@ -105,11 +94,20 @@ public class PlayerController : BaseController
         _spriteRenderer.enabled = false;
         _collider.enabled = false;
 
+        MapSize mapSize = MapManager.Instance.MapSize;
+
         while (elapsedTime < _dashDuration)
         {
             Vector2 nextPosition = _rigidbody.position + (dashSpeed * Time.fixedDeltaTime * dashDirection);
 
-            _rigidbody.MovePosition(nextPosition);
+            float clampedX = Mathf.Clamp(nextPosition.x, mapSize.MinX, mapSize.MaxX);
+            float clampedY = Mathf.Clamp(nextPosition.y, mapSize.MinY, mapSize.MaxY);
+
+            Vector2 clampedPosition = new(clampedX, clampedY);
+
+            _rigidbody.MovePosition(clampedPosition);
+
+            if (clampedPosition != nextPosition) { break; }
 
             elapsedTime += Time.fixedDeltaTime;
             await UniTask.WaitForFixedUpdate();
@@ -147,5 +145,12 @@ public class PlayerController : BaseController
     private void SendDashCountEvent()
     {
         EventBus.Invoke(new DashCountInfo(_currnetDashCount, _maxDashCount));
+    }
+
+    protected override void Initialize()
+    {
+        _currnetDashCount = _maxDashCount;
+        SendDashCountEvent();
+        _moveSpeed = 5.0f;
     }
 }

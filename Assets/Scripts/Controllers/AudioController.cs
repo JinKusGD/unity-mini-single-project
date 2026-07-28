@@ -47,4 +47,24 @@ public class AudioController : MonoBehaviour
 
         _audioSourceBGM.clip = audioClip;
     }
+
+    public float GetBgmVolume()
+    {
+        return _audioSourceBGM.volume;
+    }
+
+    public void SetBgmVolume(float volume)
+    {
+        _audioSourceBGM.volume = volume;
+    }
+
+    public float GetSFXVolume()
+    {
+        return _audioSourceSFX.volume;
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        _audioSourceSFX.volume = volume;
+    }
 }
